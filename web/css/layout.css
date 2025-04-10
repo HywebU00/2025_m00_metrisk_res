@@ -168,7 +168,7 @@ form select {
   padding: 3px 3px;
   background: #fff;
   vertical-align: middle;
-  font-size: 0.93em;
+  font-size: 0.938em;
 }
 p {
   line-height: 1.6;
@@ -277,7 +277,7 @@ a.btn.add {
 .wrap main .Right h3 {
   color: #1d4076;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 2.6;
   text-align: center;
 }
@@ -307,7 +307,7 @@ a.btn.add {
   display: block;
   text-align: center;
   margin: 6px 0;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 .wrap main .Left .Process ul li:last-child:after {
   content: '';
@@ -381,7 +381,7 @@ a.btn.add {
 }
 .wrap footer {
   text-align: center;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
   margin-top: 0px;
@@ -404,7 +404,7 @@ a.btn.add {
 .mp header .user span {
   padding: 8px 20px;
   margin-left: -4px;
-  font-size: 14px;
+  font-size: 0.875rem;
   display: inline-block;
 }
 .mp header .user .user-name {
@@ -472,7 +472,7 @@ a.btn.add {
   background: none;
   padding: 0;
   color: #000;
-  font-size: 18px;
+  font-size: 1.125rem;
   margin-bottom: 1em;
 }
 .mp main .Center .Table h2:before {
@@ -480,7 +480,7 @@ a.btn.add {
   display: inline-block;
   width: 16px;
   height: 16px;
-  font-size: 12px;
+  font-size: 0.813rem;
   line-height: 16px;
   vertical-align: top;
   text-align: center;
@@ -496,7 +496,7 @@ a.btn.add {
 .mp main .Center .Table table a.btn {
   background: #4e4e4e;
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: 0.875rem;
   min-width: 80px;
   vertical-align: middle;
 }
@@ -578,15 +578,15 @@ a.btn.add {
 }
 .mp main .Center .list li .date {
   margin-left: 0.5em;
-  font-size: 0.86em;
+  font-size: 0.875em;
   color: #da473a;
 }
 .mp main .Center .list li .dept {
   margin-left: 0.5em;
-  font-size: 0.86em;
+  font-size: 0.875em;
 }
 .mp main .Center .list li p {
-  font-size: 0.9em;
+  font-size: 0.938em;
   margin: 0px;
 }
 .mp main .Center .list li img {
@@ -650,7 +650,7 @@ a.btn.add {
   display: inline-block;
   width: 16px;
   height: 16px;
-  font-size: 12px;
+  font-size: 0.813rem;
   line-height: 16px;
   vertical-align: top;
   text-align: center;
@@ -706,14 +706,14 @@ a.btn.add {
   background: none;
   padding: 0;
   color: #000;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 .mp main .Content .Table h2:before {
   content: '▸';
   display: inline-block;
   width: 16px;
   height: 16px;
-  font-size: 12px;
+  font-size: 0.813rem;
   line-height: 16px;
   vertical-align: top;
   text-align: center;
@@ -729,7 +729,7 @@ a.btn.add {
 .mp main .Content .Table table a.btn {
   background: #4e4e4e;
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: 0.875rem;
   min-width: 80px;
   vertical-align: middle;
 }
@@ -796,7 +796,7 @@ a.btn.add {
   height: 35px;
   min-width: 70px;
   padding: 6px 12px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 .Must:before {
   content: '*';
@@ -905,7 +905,7 @@ a.btn.add {
   text-align: right;
   width: 4em;
   display: inline-block;
-  font-size: 0.93em;
+  font-size: 0.938em;
 }
 .member .textblock {
   margin: 5px 0;
@@ -921,7 +921,7 @@ a.btn.add {
   margin: 5px 0;
 }
 .member p {
-  font-size: 95%;
+  font-size: 0.938rem;
   margin: 10px 15px 10px;
   line-height: 150%;
   text-justify: inter-ideograph;
@@ -930,7 +930,7 @@ a.btn.add {
 .member .btn01 {
   background: #e87439;
   color: #fff;
-  font-size: 0.93em;
+  font-size: 0.938em;
   padding: 3px 15px;
   border-radius: 3px;
   border: solid 1px #d2652d;
@@ -939,7 +939,7 @@ a.btn.add {
 .member .btn02 {
   background: #7eaa55;
   color: #fff;
-  font-size: 0.93em;
+  font-size: 0.938em;
   padding: 3px 15px;
   border-radius: 3px;
   border: solid 1px #65903d;
@@ -981,7 +981,7 @@ a.btn.add {
   border: solid 0px #ce6734;
 }
 .firm_login p {
-  font-size: 95%;
+  font-size: 0.938rem;
   margin: 5px 25px 20px;
   line-height: 150%;
   text-justify: inter-ideograph;
@@ -1118,7 +1118,7 @@ nav {
   position: absolute;
   top: 10px;
   right: 50px;
-  font-size: 85%;
+  font-size: 0.875rem;
 }
 nav .nav ul {
   list-style: none;
@@ -1146,7 +1146,7 @@ nav li a:hover {
   background: none;
   padding: 0;
   color: #000;
-  font-size: 18px;
+  font-size: 1.125rem;
   margin-bottom: 1em;
 }
 .cp h2:before {
@@ -1154,7 +1154,7 @@ nav li a:hover {
   display: inline-block;
   width: 16px;
   height: 16px;
-  font-size: 12px;
+  font-size: 0.813rem;
   line-height: 16px;
   vertical-align: top;
   text-align: center;
@@ -1180,7 +1180,7 @@ nav li a:hover {
   color: #666;
 }
 .cp p {
-  font-size: 1.15em;
+  font-size: 1.125em;
   margin-bottom: 1em;
   margin-left: 5px;
   color: #333;
@@ -1207,7 +1207,7 @@ nav li a:hover {
   text-decoration: none;
   color: #333;
   height: 90px;
-  font-size: 0.9em;
+  font-size: 0.938em;
   line-height: 130%;
   display: block;
   padding: 1em 0.5em 0.5em;
