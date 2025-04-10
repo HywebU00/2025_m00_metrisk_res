@@ -73,13 +73,13 @@ a:hover,
 .errorMessage {
   color: red;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.25em;
 }
 
 ul.errorMessage li span {
   color: red;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.25em;
 }
 
 /** MultiDatesPicker highlight selected date **/
@@ -99,7 +99,7 @@ table.ui-datepicker-calendar {
 }
 
 div.ui-datepicker {
-  /*font-size:10px;*/
+  /*font-size:.75em;*/
 }
 
 /** for struts custom by stone **/
@@ -214,9 +214,9 @@ span.new_notification {
 }
 
 .fileinput-button-span {
-  width: 30px;
-  height: 30px;
-  font-size: 30px;
+  width: 1.875em;
+  height: 1.875em;
+  font-size: 1.875em;
   font-weight: bolder;
   background: url('../images/Add_File_Icon-32.png') center center no-repeat;
 }
