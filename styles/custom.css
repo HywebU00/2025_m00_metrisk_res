@@ -1,0 +1,233 @@
+@charset "utf-8";
+
+/**������摰孵祝摨佗�矽��250px**/
+.menu {
+  width: 250px;
+}
+/**隤踵����z-index撠jquery dialog z-index:102**/
+.menubutton {
+  z-index: 100;
+  left: 255px;
+  top: 115px;
+}
+.menubutton2 {
+  z-index: 100;
+  top: 115px;
+}
+.menu h3 {
+  border-radius: 5px 5px 0 0;
+}
+.leftblock {
+  width: 250px;
+}
+
+.btn2:hover,
+input[type='button']:hover,
+input[type='submit']:hover,
+button:hover,
+a:hover,
+.upload_del:hover {
+  opacity: 1;
+}
+
+/**隤踵jquery tab����**/
+
+.simple_ap {
+  margin: 10px 15px 10px 15px;
+  clear: both;
+  min-height: 400px;
+}
+
+/* 靽格迤smoothDivScroll plugin���頝������ */
+.listTb {
+  position: relative;
+}
+
+/*������*/
+.basic_wrap {
+  width: 980px;
+  margin: 0 auto;
+  position: relative;
+  font-family: '敺株�迤暺��', Arial, Helvetica, sans-serif;
+  font-size: 1em;
+}
+
+/*����撠�漲*/
+.ap {
+  min-height: 400px;
+}
+
+/*no boder table style*/
+.noBorderTable table {
+  margin: 0;
+  padding: 0;
+  padding: 0px 0px;
+}
+.noBorderTable table td {
+  margin: 0;
+  border: 0px;
+  padding: 0px 0px;
+}
+
+/*struts error message style*/
+.errorMessage {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+ul.errorMessage li span {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/** MultiDatesPicker highlight selected date **/
+/* begin: jQuery UI Datepicker moving pixels fix */
+table.ui-datepicker-calendar {
+  border-collapse: separate;
+}
+.ui-datepicker-calendar td {
+  border: 1px solid transparent;
+}
+/* end: jQuery UI Datepicker moving pixels fix */
+
+/* begin: jQuery UI Datepicker emphasis on selected dates */
+.ui-datepicker .ui-datepicker-calendar .ui-state-highlight a {
+  background: #743620 none; /* a color that fits the widget theme */
+  color: white; /* a color that is readeable with the color above */
+}
+
+div.ui-datepicker {
+  /*font-size:10px;*/
+}
+
+/** for struts custom by stone **/
+.formTb table .tdLabel {
+  background-color: #ecc0a6;
+  border-bottom: 1px solid #fde9dd;
+  padding: 8px 15px;
+  text-align: right;
+  white-space: nowrap;
+  font-weight: normal;
+  width: 20%;
+}
+
+/** link no decoration **/
+a.link {
+  color: #fff;
+  text-decoration: none;
+}
+a.link:hover {
+  text-decoration: underline;
+}
+
+.message {
+  text-align: center;
+  vertical-align: middle;
+  width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -125px 0 0 -250px;
+  border: 1px solid #ccc;
+  padding: 15px;
+}
+
+.main pre {
+  font-family: '敺株�迤暺��', Arial, Helvetica, sans-serif;
+}
+
+/** �jquery dialog open���body scroll���� **/
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+.input_block {
+  border-style: dotted;
+  border-width: thin;
+  margin: 2px;
+  padding: 2px;
+}
+
+.formBtn2 {
+  text-align: left;
+  margin: 10px 0;
+}
+
+td.forceBreakLine {
+  word-break: break-all;
+}
+
+/** �憓pan **/
+span.new_notification {
+  background-color: pink;
+  color: white;
+  border-radius: 5px;
+  padding: 1px;
+}
+
+/** ���炎蝝� **/
+.search_txt {
+  padding: 0px 5px;
+  border-radius: 5px;
+  height: 2.4em;
+}
+
+.search_result {
+  margin: 10px 0;
+}
+
+.search_result a {
+  font-size: 1.3em;
+  color: blue;
+  margin-bottom: 10px;
+  background-image: url(../images/icon_view.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  padding-right: 20px;
+}
+
+.sweet-alert h2 {
+  background-image: none;
+}
+
+.sweet-alert button {
+  background-color: #a68c7d !important;
+}
+.sweet-alert button.cancel {
+  background-color: #c1c1c1 !important;
+}
+
+/*�閰█nput甈��*/
+.query_input {
+  background-image: url(../images/icon_search.png);
+  background-repeat: no-repeat;
+  background-position: 5px 10px;
+  padding-left: 25px;
+  border-radius: 10px;
+}
+
+.formTb table th {
+  width: 50px;
+}
+
+.fileinput-button-span {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  font-weight: bolder;
+  background: url('../images/Add_File_Icon-32.png') center center no-repeat;
+}
+.upload_del {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  background: url('../images/icon06.gif') center center no-repeat;
+  cursor: pointer;
+}
+.upload_detail .fileImage {
+  max-height: 300px;
+  width: 200px;
+}
