@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>風險評估及產品危險預防對策系統</title>
+    <title>步驟二：機械設備基本資訊-風險評估及產品危險預防對策系統</title>
 
     <script src="javascript/common_utils.js"></script>
     <script src="javascript/common_form_utils.js"></script>
@@ -86,6 +86,8 @@
     <script src="javascript/jquery.twzipcode.min.js"></script>
   </head>
   <body>
+    <!-- 直接跳主內容區 -->
+    <a class="goCenter" href="#aC" tabindex="1">按Enter到主內容區</a>
     <div class="wrap mp">
       <script language="JavaScript">
         var timeOut = 900; //15分鐘
@@ -125,6 +127,7 @@
       </script>
 
       <header>
+        <a class="accessKey" href="#aU" id="aU" accesskey="U" title="上方功能區塊" tabindex="2">:::</a>
         <h1><a href="/RES/home.action" class="logo1">風險評估及產品危險預防對策系統</a></h1>
 
         <div class="user">
@@ -140,6 +143,7 @@
 
       <main class="clear-fix">
         <div class="Left Menu">
+          <a class="accessKey" href="#aL" id="aL" accesskey="L" title="左方主選單">:::</a>
           <div class="box btn-box">
             <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('home')">風險評估撰寫</a><br />
 
@@ -220,6 +224,14 @@
           </script>
         </div>
         <div class="Right Content">
+          <a class="accessKey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
+          <div aria-label="Breadcrumb" class="breadcrumb">
+            <ul>
+              <li><a href="#">首頁</a></li>
+              <li><a href="#">風險評估撰寫</a></li>
+              <li aria-current="page">步驟二：機械設備基本資訊</li>
+            </ul>
+          </div>
           <form id="saveEquipment" name="saveEquipment" action="/RES/front/riskEvaluation/saveEquipment.action" method="post">
             <div class="box Table">
               <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" />
@@ -238,13 +250,13 @@
               <table>
                 <tbody>
                   <tr>
-                    <th>* 產品中文名稱：</th>
+                    <th><span class="necessary" title="為必填(選)欄位,不能為空白。">*</span> <label for="nameCh">產品中文名稱：</label></th>
                     <td><input type="text" name="targetObject.equipment.nameCh" size="20" value="111" id="nameCh" /></td>
-                    <th>產品英文名稱：</th>
+                    <th><label for="saveEquipment_targetObject_equipment_nameEn">產品英文名稱：</label></th>
                     <td><input type="text" name="targetObject.equipment.nameEn" size="20" value="" id="saveEquipment_targetObject_equipment_nameEn" /></td>
                   </tr>
                   <tr>
-                    <th>類型：</th>
+                    <th><label for="eqClass">類型：</label></th>
                     <td>
                       <select name="targetObject.equipment.eqClass" id="eqClass">
                         <option value="">請選擇</option>
@@ -265,23 +277,23 @@
                         <option value="MT0050">金屬加工磨床</option>
                       </select>
                     </td>
-                    <th>主型式：</th>
+                    <th><label for="rbId">主型式：</label></th>
                     <td><input type="text" name="targetObject.equipment.mainType" size="20" value="" id="rbId" /></td>
                   </tr>
                   <tr>
-                    <th>系列型式：</th>
+                    <th><label for="saveEquipment_targetObject_equipment_setType">系列型式：</label></th>
                     <td colspan="3"><textarea name="targetObject.equipment.setType" cols="60" rows="2" id="saveEquipment_targetObject_equipment_setType"></textarea></td>
                   </tr>
                   <tr>
-                    <th>機台用途：</th>
+                    <th><label for="rbId">機台用途：</label></th>
                     <td><input type="text" name="targetObject.equipment.application" size="20" value="" id="rbId" /></td>
-                    <th>動力源：</th>
+                    <th><label for="rbId">動力源：</label></th>
                     <td><input type="text" name="targetObject.equipment.powerSupply" size="20" value="" id="rbId" /></td>
                   </tr>
                   <tr>
                     <th>產品照片：</th>
                     <td colspan="3">
-                      <span style="color: red">支援格式:jpg、png、gif、jpeg　　上傳限制數量:10</span>
+                      <span style="color: #c00">支援格式:jpg、png、gif、jpeg　　上傳限制數量:10</span>
 
                       <!-- 是否為單檔上傳模式 -->
 
@@ -500,7 +512,7 @@
               </script>
 
               <div align="center">
-                <a href="###" class="btn positive" onclick="submit();"> 下一步 </a>
+                <a href="###" class="btn positive" onclick="submit();" role="button"> 下一步 </a>
               </div>
             </div>
           </form>
