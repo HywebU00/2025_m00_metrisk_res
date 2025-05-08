@@ -250,13 +250,13 @@
               <table>
                 <tbody>
                   <tr>
-                    <th><span class="necessary" title="為必填(選)欄位,不能為空白。">*</span> <label for="nameCh">產品中文名稱：</label></th>
+                    <th scope="row"><span class="necessary" title="為必填(選)欄位,不能為空白。">*</span> <label for="nameCh">產品中文名稱：</label></th>
                     <td><input type="text" name="targetObject.equipment.nameCh" size="20" value="111" id="nameCh" /></td>
-                    <th><label for="saveEquipment_targetObject_equipment_nameEn">產品英文名稱：</label></th>
+                    <th scope="row"><label for="saveEquipment_targetObject_equipment_nameEn">產品英文名稱：</label></th>
                     <td><input type="text" name="targetObject.equipment.nameEn" size="20" value="" id="saveEquipment_targetObject_equipment_nameEn" /></td>
                   </tr>
                   <tr>
-                    <th><label for="eqClass">類型：</label></th>
+                    <th scope="row"><label for="eqClass">類型：</label></th>
                     <td>
                       <select name="targetObject.equipment.eqClass" id="eqClass">
                         <option value="">請選擇</option>
@@ -277,21 +277,21 @@
                         <option value="MT0050">金屬加工磨床</option>
                       </select>
                     </td>
-                    <th><label for="rbId">主型式：</label></th>
+                    <th scope="row"><label for="rbId">主型式：</label></th>
                     <td><input type="text" name="targetObject.equipment.mainType" size="20" value="" id="rbId" /></td>
                   </tr>
                   <tr>
-                    <th><label for="saveEquipment_targetObject_equipment_setType">系列型式：</label></th>
+                    <th scope="row"><label for="saveEquipment_targetObject_equipment_setType">系列型式：</label></th>
                     <td colspan="3"><textarea name="targetObject.equipment.setType" cols="60" rows="2" id="saveEquipment_targetObject_equipment_setType"></textarea></td>
                   </tr>
                   <tr>
-                    <th><label for="rbId">機台用途：</label></th>
+                    <th scope="row"><label for="rbId">機台用途：</label></th>
                     <td><input type="text" name="targetObject.equipment.application" size="20" value="" id="rbId" /></td>
-                    <th><label for="rbId">動力源：</label></th>
+                    <th scope="row"><label for="rbId">動力源：</label></th>
                     <td><input type="text" name="targetObject.equipment.powerSupply" size="20" value="" id="rbId" /></td>
                   </tr>
                   <tr>
-                    <th>產品照片：</th>
+                    <th scope="row"><label for="fileuploadid">產品照片：</label></th>
                     <td colspan="3">
                       <span style="color: #c00">支援格式:jpg、png、gif、jpeg　　上傳限制數量:10</span>
 
@@ -305,7 +305,7 @@
 
                               <span class="fileinput-button">
                                 <div class="fileinput-button-span"></div>
-                                <input class="fileupload" type="file" name="files[]" multiple="" />
+                                <input class="fileupload" type="file" name="files[]" multiple="" id="fileuploadid" />
                               </span>
                             </td>
                             <td>
