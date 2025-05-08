@@ -235,27 +235,27 @@
 
           <form id="saveCompany" name="saveCompany" action="/RES/front/riskEvaluation/saveCompany.action" method="post">
             <div class="box Table">
-              <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" />
+              <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" aria-hidden="true" />
 
-              <input type="hidden" name="targetObject.rbId" value="PR20250506S006" id="rbId" />
-              <input type="hidden" name="targetObject.authNumber" value="hdxUXMRu31" id="authNumber" />
-              <input type="hidden" name="targetObject.status" value="N" id="saveCompany_targetObject_status" />
-              <input type="hidden" name="targetObject.comId" value="2c991630969e4e7d0196a51d94850005" id="saveCompany_targetObject_comId" />
-              <input type="hidden" name="targetObject.etId" value="2c991630969e4e7d0196a51d94850006" id="saveCompany_targetObject_etId" />
-              <input type="hidden" name="targetObject.eqId" value="2c991630969e4e7d0196a51db9c00007" id="saveCompany_targetObject_eqId" />
-              <input type="hidden" name="targetObject.defId" value="2c991630969e709c0196a51dc132000b" id="saveCompany_targetObject_defId" />
-              <input type="hidden" name="targetObject.createDate" value="2025/5/6 下午6:21:14.000" id="saveCompany_targetObject_createDate" />
+              <input type="hidden" name="targetObject.rbId" value="PR20250506S006" id="rbId" aria-hidden="true" />
+              <input type="hidden" name="targetObject.authNumber" value="hdxUXMRu31" id="authNumber" aria-hidden="true" />
+              <input type="hidden" name="targetObject.status" value="N" id="saveCompany_targetObject_status" aria-hidden="true" />
+              <input type="hidden" name="targetObject.comId" value="2c991630969e4e7d0196a51d94850005" id="saveCompany_targetObject_comId" aria-hidden="true" />
+              <input type="hidden" name="targetObject.etId" value="2c991630969e4e7d0196a51d94850006" id="saveCompany_targetObject_etId" aria-hidden="true" />
+              <input type="hidden" name="targetObject.eqId" value="2c991630969e4e7d0196a51db9c00007" id="saveCompany_targetObject_eqId" aria-hidden="true" />
+              <input type="hidden" name="targetObject.defId" value="2c991630969e709c0196a51dc132000b" id="saveCompany_targetObject_defId" aria-hidden="true" />
+              <input type="hidden" name="targetObject.createDate" value="2025/5/6 下午6:21:14.000" id="saveCompany_targetObject_createDate" aria-hidden="true" />
 
               <h2>步驟一：廠商及人員資料</h2>
 
               <table>
                 <tbody>
                   <tr>
-                    <th>報告編號：</th>
+                    <th scope="row">報告編號：</th>
                     <td><label id="saveCompany_targetObject_rbId">PR20250506S006</label></td>
                   </tr>
                   <tr>
-                    <th>認證編號：</th>
+                    <th scope="row">認證編號：</th>
                     <td><label id="saveCompany_targetObject_authNumber">hdxUXMRu31</label></td>
                   </tr>
                   <tr>
@@ -273,19 +273,19 @@
               <table>
                 <tbody>
                   <tr>
-                    <th><span class="necessary" title="為必填(選)欄位,不能為空白。">*</span> <label for="companyName">事業單位名稱：</label></th>
+                    <th scope="row"><span class="necessary" title="為必填(選)欄位,不能為空白。">*</span> <label for="companyName">事業單位名稱：</label></th>
                     <td><input type="text" name="targetObject.company.name" size="30" value="111" id="companyName" /></td>
-                    <th><span class="necessary" title="為必填(選)欄位,不能為空白。">*</span> <label for="companyUid">統編：</label></th>
+                    <th scope="row"><span class="necessary" title="為必填(選)欄位,不能為空白。">*</span> <label for="companyUid">統編：</label></th>
                     <td><input type="text" name="targetObject.company.uid" size="20" value="11111111" id="companyUid" onkeyup="value=value.replace(/[^\d]/g,'')" /></td>
                   </tr>
                   <tr>
-                    <th><span class="necessary" title="為必填(選)欄位,不能為空白。">*</span> <label for="companyAddress">地址：</label></th>
+                    <th scope="row"><span class="necessary" title="為必填(選)欄位,不能為空白。">*</span> <label for="companyAddress">地址：</label></th>
                     <td><input type="text" name="targetObject.company.address" size="30" value="111" id="companyAddress" /></td>
-                    <th><span class="necessary" title="為必填(選)欄位,不能為空白。">*</span> <label for="companyPhone">電話：</label></th>
+                    <th scope="row"><span class="necessary" title="為必填(選)欄位,不能為空白。">*</span> <label for="companyPhone">電話：</label></th>
                     <td><input type="text" name="targetObject.company.phone" size="20" value="111" id="companyPhone" /></td>
                   </tr>
                   <tr>
-                    <th><span class="necessary" title="為必填(選)欄位,不能為空白。">*</span> 事業單位類型：</th>
+                    <th scope="row"><span class="necessary" title="為必填(選)欄位,不能為空白。">*</span> 事業單位類型：</th>
                     <td colspan="3">
                       <input type="radio" name="targetObject.company.type" id="saveCompany_targetObject_company_typeA" checked="checked" value="A" /><label for="saveCompany_targetObject_company_typeA">製造者</label>
                       <input type="radio" name="targetObject.company.type" id="saveCompany_targetObject_company_typeB" value="B" /><label for="saveCompany_targetObject_company_typeB">輸入者</label>
@@ -302,19 +302,19 @@
               <table>
                 <tbody>
                   <tr>
-                    <th><laber for="saveCompany_targetObject_evaluator_name">人員姓名：</laber></th>
+                    <th scope="row"><laber for="saveCompany_targetObject_evaluator_name">人員姓名：</laber></th>
                     <td><input type="text" name="targetObject.evaluator.name" size="20" value="" id="saveCompany_targetObject_evaluator_name" /></td>
-                    <th><label for="saveCompany_targetObject_evaluator_pos">人員職稱：</label></th>
+                    <th scope="row"><label for="saveCompany_targetObject_evaluator_pos">人員職稱：</label></th>
                     <td><input type="text" name="targetObject.evaluator.pos" size="20" value="" id="saveCompany_targetObject_evaluator_pos" /></td>
                   </tr>
                   <tr>
-                    <th><label for="email">人員Email：</label></th>
+                    <th scope="row"><label for="email">人員Email：</label></th>
                     <td><input type="text" name="targetObject.evaluator.email" size="20" value="" id="email" /></td>
-                    <th><label for="saveCompany_targetObject_evaluator_phone">人員電話：</label></th>
+                    <th scope="row"><label for="saveCompany_targetObject_evaluator_phone">人員電話：</label></th>
                     <td><input type="text" name="targetObject.evaluator.phone" size="20" value="" id="saveCompany_targetObject_evaluator_phone" /></td>
                   </tr>
                   <tr>
-                    <th><label for="rbId">備註：</label></th>
+                    <th scope="row"><label for="rbId">備註：</label></th>
                     <td colspan="3"><input type="text" name="targetObject.evaluator.description" size="50" value="" id="rbId" /></td>
                   </tr>
                 </tbody>
