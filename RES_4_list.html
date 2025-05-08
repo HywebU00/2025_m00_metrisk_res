@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>風險評估及產品危險預防對策系統-風險評估撰寫</title>
+    <title>風險評估及產品危險預防對策系統</title>
 
     <script src="javascript/common_utils.js"></script>
     <script src="javascript/common_form_utils.js"></script>
@@ -86,13 +86,11 @@
     <script src="javascript/jquery.twzipcode.min.js"></script>
   </head>
   <body>
-    <!-- 直接跳主內容區 -->
-    <a class="goCenter" href="#aC" tabindex="1">按Enter到主內容區</a>
     <div class="wrap mp">
       <script language="JavaScript">
         var timeOut = 900; //15分鐘
         $(function () {
-          if (false) showTimeOut();
+          if (true) showTimeOut();
         });
 
         function showTimeOut() {
@@ -127,23 +125,23 @@
       </script>
 
       <header>
-        <a class="accessKey" href="#aU" id="aU" accesskey="U" title="上方功能區塊" tabindex="2">:::</a>
         <h1><a href="/RES/home.action" class="logo1">風險評估及產品危險預防對策系統</a></h1>
 
         <div class="user">
           <span id="numberSec" style="color: blue"></span>
+
+          <a href="javascript:void(0);" onclick="doLogout();"> 登出 </a>
         </div>
       </header>
 
       <form id="formLogout" action="/RES/j_spring_security_logout" method="POST">
-        <input type="hidden" name="_csrf" value="c94fe38d-2cd5-4a49-b479-4f16ecff4094" />
+        <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
       </form>
 
       <main class="clear-fix">
         <div class="Left Menu">
-          <a class="accessKey" href="#aL" id="aL" accesskey="L" title="左方主選單">:::</a>
           <div class="box btn-box">
-            <a href="###" class="btn positive" style="width: 235px; text-align: left" onclick="navigator('home')">風險評估撰寫</a><br />
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('home')">風險評估撰寫</a><br />
 
             <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('editCompany')">步驟一：廠商及人員資料</a><br />
 
@@ -151,7 +149,7 @@
 
             <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('editRiskLevelDef')">步驟三：風險等級定義</a><br />
 
-            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('listHazardItem')">步驟四：危害辨識</a><br />
+            <a href="###" class="btn positive" style="width: 235px; text-align: left" onclick="navigator('listHazardItem')">步驟四：危害辨識</a><br />
 
             <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('listEvaluation')">步驟五：風險評估</a><br />
 
@@ -162,49 +160,49 @@
 
           <form id="home" name="home" action="/RES/home.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="c94fe38d-2cd5-4a49-b479-4f16ecff4094" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
           <form id="editCompany" name="editCompany" action="/RES/front/riskEvaluation/editCompany.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="c94fe38d-2cd5-4a49-b479-4f16ecff4094" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
           <form id="editEquipment" name="editEquipment" action="/RES/front/riskEvaluation/editEquipment.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="c94fe38d-2cd5-4a49-b479-4f16ecff4094" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
           <form id="editRiskLevelDef" name="editRiskLevelDef" action="/RES/front/riskEvaluation/editRiskLevelDef.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="c94fe38d-2cd5-4a49-b479-4f16ecff4094" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
           <form id="listHazardItem" name="listHazardItem" action="/RES/front/riskEvaluation/listHazardItem.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="c94fe38d-2cd5-4a49-b479-4f16ecff4094" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
           <form id="listEvaluation" name="listEvaluation" action="/RES/front/riskEvaluation/listEvaluation.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="c94fe38d-2cd5-4a49-b479-4f16ecff4094" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
           <form id="listCountermeasure" name="listCountermeasure" action="/RES/front/riskEvaluation/listCountermeasure.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="c94fe38d-2cd5-4a49-b479-4f16ecff4094" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
           <form id="downloadRiskEvaluationReport" name="downloadRiskEvaluationReport" action="/RES/front/riskEvaluation/downloadRiskEvaluationReport.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="c94fe38d-2cd5-4a49-b479-4f16ecff4094" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
@@ -212,7 +210,7 @@
             $(function () {});
 
             function navigator(action) {
-              if (true && action != 'home') {
+              if (false && action != 'home') {
                 alert('尚未開始進行風險評估!');
                 return false;
               } else {
@@ -222,78 +220,116 @@
           </script>
         </div>
         <div class="Right Content">
-          <a class="accessKey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
-          <div aria-label="Breadcrumb" class="breadcrumb">
-            <ul>
-              <li><a href="#">首頁</a></li>
-              <li aria-current="page">風險評估撰寫</li>
-            </ul>
-          </div>
-          <form id="startRiskEvaluation" name="startRiskEvaluation" action="/RES/front/riskEvaluation/startRiskEvaluation.action" method="post">
-            <div class="box Table">
-              <input type="hidden" name="_csrf" value="c94fe38d-2cd5-4a49-b479-4f16ecff4094" />
+          <div class="box Table">
+            <h2>步驟四：危害辨識</h2>
 
-              <h2>風險評估概念及系統使用摘要說明</h2>
+            <a href="###" class="btn positive add" onclick="newHazardItemObject()">新增危害辨識項目</a>
 
-              <table>
-                <tr>
-                  <td>
-                    <p>
-                      基於職業安全衛生法第5條第2項明定機械、設備、器具、原料、材料等物件之設計、製造或輸入者及工程之設計或施工者，應於設計、製造、輸入或施工規劃階段實施風險評估，致力防止此等物件於使用或工程施工時，發生職業災害，本應用系統爰導入ISO 12100及ISO/TR
-                      14121等機械設備產品風險評估相關國際標準，藉由分類各種機械設備，定義該類機械設備之風險等級(S→F→O→A→RISK)，辨識其危害種類、區域(位置)、可能來源、危害情況(時期)及採用之防護對策等步驟，以降低其風險為可接受等級，預防發生職災，達到建構新興產業型態所需風險評估與監督管理知能之目標。
-                    </p>
-                  </td>
-                </tr>
+            <div class="listTb">
+              <table class="horizontal" id="obj">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>危害源</th>
+                    <th>危害狀況</th>
+                    <th>編修</th>
+                    <th>刪除</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="odd">
+                    <td>1</td>
+                    <td style="white-space: nowrap">電氣危害</td>
+                    <td style="white-space: nowrap">組裝、安裝、試運轉</td>
+                    <td>
+                      <a href="###" onClick="editHazardItemObject('2c991630969e709c0196a51b8d7e0005')"> <img src="images/icon_modify.gif" width="21" height="21" border="0" /></a>
+                    </td>
+                    <td>
+                      <a href="###" onClick="deleteHazardItemObject('2c991630969e709c0196a51b8d7e0005')"> <img src="images/icon_delete.gif" width="21" height="21" border="0" /></a>
+                    </td>
+                  </tr>
+                  <tr class="even">
+                    <td>2</td>
+                    <td style="white-space: nowrap">熱危害</td>
+                    <td style="white-space: nowrap">偵錯/故障診斷</td>
+                    <td>
+                      <a href="###" onClick="editHazardItemObject('2c991630969e709c0196a51c0ee20007')"> <img src="images/icon_modify.gif" width="21" height="21" border="0" /></a>
+                    </td>
+                    <td>
+                      <a href="###" onClick="deleteHazardItemObject('2c991630969e709c0196a51c0ee20007')"> <img src="images/icon_delete.gif" width="21" height="21" border="0" /></a>
+                    </td>
+                  </tr>
+                  <tr class="odd">
+                    <td>3</td>
+                    <td style="white-space: nowrap">振動危害</td>
+                    <td style="white-space: nowrap">組裝、安裝、試運轉</td>
+                    <td>
+                      <a href="###" onClick="editHazardItemObject('2c991630969e709c0196a51cdcef0009')"> <img src="images/icon_modify.gif" width="21" height="21" border="0" /></a>
+                    </td>
+                    <td>
+                      <a href="###" onClick="deleteHazardItemObject('2c991630969e709c0196a51cdcef0009')"> <img src="images/icon_delete.gif" width="21" height="21" border="0" /></a>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
-              <br />
-
-              <label id="startRiskEvaluation_errorMsg" style="color: red"></label><br /><br />
-
-              <table>
-                <tr>
-                  <th><label for="rbId">報告編號：</label></th>
-                  <td><input type="text" name="targetObject.rbId" size="30" value="" id="rbId" /> (空白表示重新進行風險評估)</td>
-                </tr>
-                <tr>
-                  <th><label for="authNumber">認證編號：</label></th>
-                  <td><input type="text" name="targetObject.authNumber" size="30" value="" id="authNumber" /> (空白表示重新進行風險評估)</td>
-                </tr>
-                <tr>
-                  <th><label for="loginCodeVerify">圖形驗證碼：</label></th>
-                  <td>
-                    <input type="text" name="loginCodeVerify" size="10" value="" id="loginCodeVerify" style="float: left" onKeyPress="submitenter(event)" />&nbsp
-                    <img alt="驗證碼" src="images/codeImageServlet.jpeg" height="25" />
-                  </td>
-                </tr>
-              </table>
-              <br />
-
-              <div align="center">
-                <a href="###" class="btn positive" onclick="submit();"> 開始進行風險評估 </a>
-              </div>
             </div>
+            <br />
+
+            <div align="center">
+              <a href="###" class="btn positive" onclick="$('#listEvaluation').submit();"> 下一步 </a>
+            </div>
+          </div>
+
+          <form id="listEvaluation" name="listEvaluation" action="/RES/front/riskEvaluation/listEvaluation.action" method="post">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="newHazardItem" name="newHazardItem" action="/RES/front/riskEvaluation/newHazardItem.action" method="post">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="editHazardItem" name="editHazardItem" action="/RES/front/riskEvaluation/editHazardItem.action" method="post">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+              <tr style="display: none">
+                <td colspan="2">
+                  <input type="hidden" name="targetObjectId" value="" id="editHazardItem_targetObjectId" />
+                </td>
+              </tr>
+            </table>
+          </form>
+
+          <form id="deleteHazardItem" name="deleteHazardItem" action="/RES/front/riskEvaluation/deleteHazardItem.action" method="post">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+              <tr style="display: none">
+                <td colspan="2">
+                  <input type="hidden" name="targetObjectId" value="" id="deleteHazardItem_targetObjectId" />
+                </td>
+              </tr>
+            </table>
           </form>
 
           <script>
-            function submit() {
-              if (jQuery('#loginCodeVerify').val() == '') {
-                alert('請輸入圖形驗證碼！');
-                return false;
-              } else {
-                document.getElementById('startRiskEvaluation').submit();
-              }
+            function deleteHazardItemObject(targetObjectId) {
+              if (!confirm('確定要刪除資料?')) return;
+
+              document.getElementById('deleteHazardItem').targetObjectId.value = targetObjectId;
+              document.getElementById('deleteHazardItem').submit();
             }
 
-            function submitenter(e) {
-              var keycode;
-              if (window.event) keycode = window.event.keyCode;
-              else if (e) keycode = e.which;
-              else return true;
+            function newHazardItemObject() {
+              if (false) alert('請先至步驟二選取機械種類');
+              else document.getElementById('newHazardItem').submit();
+            }
 
-              if (keycode == 13) {
-                submit();
-                return false;
-              } else return true;
+            function editHazardItemObject(targetObjectId) {
+              document.getElementById('editHazardItem').targetObjectId.value = targetObjectId;
+              document.getElementById('editHazardItem').submit();
             }
           </script>
         </div>

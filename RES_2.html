@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>風險評估及產品危險預防對策系統</title>
+
+    <script src="javascript/common_utils.js"></script>
+    <script src="javascript/common_form_utils.js"></script>
+    <script src="javascript/formvalidator.js"></script>
+    <!-- sweetalert start -->
+    <script src="javascript/sweetalert.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="styles/sweetalert.css" />
+    <script type="text/javascript">
+      <!--
+      (function () {
+        window.alert = function () {
+          return swal.apply(this, arguments);
+        };
+      })(window.alert);
+      //-->
+    </script>
+    <!-- sweetalert end -->
+
+    <script type="text/javascript" src="javascript/jquery/jquery-3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery/jquery-migrate-3.0.1/jquery-migrate-3.0.1.min.js"></script>
+    <link href="styles/jquery/jquery-ui-1.12.1.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="javascript/jquery/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="javascript/jquery/jquery.cookie.js?1=1"></script>
+
+    <script type="text/javascript" src="javascript/jquery/jquery.blockUI.js"></script>
+
+    <!-- jquery file upload -->
+    <link href="styles/jquery/upload/jquery.fileupload.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="javascript/jquery/upload/jquery.iframe-transport.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/10.2.0/js/jquery.fileupload.js"></script>
+
+    <!-- datepicker zh-TW -->
+    <script src="javascript/jquery/jquery.ui.datepicker-zh-TW.js"></script>
+
+    <script src="javascript/jquery/jquery.maskedinput.js"></script>
+
+    <!-- multi calendar select -->
+    <script src="javascript/jquery/jquery-ui.multidatespicker.js"></script>
+
+    <script src="javascript/jquery/jquery.popupWindow.js"></script>
+
+    <!-- datetimepicker -->
+    <script src="javascript/jquery/jquery-ui-timepicker-addon.js"></script>
+    <link rel="Stylesheet" type="text/css" href="styles/jquery/jquery-ui-timepicker-addon.css" />
+
+    <!-- smooth div scroll -->
+    <link rel="Stylesheet" type="text/css" href="styles/jquery/smoothDivScroll/smoothDivScroll.css" />
+    <script src="javascript/jquery/smoothDivScroll/jquery.mousewheel.min.js"></script>
+    <script src="javascript/jquery/smoothDivScroll/jquery.kinetic.min.js"></script>
+    <script src="javascript/jquery/smoothDivScroll/jquery.smoothdivscroll-1.3-min.js"></script>
+
+    <!-- jquery plugin select2 -->
+    <script src="javascript/jquery/select2/select2.min.js"></script>
+    <link rel="Stylesheet" type="text/css" href="styles/jquery/select2/select2.min.css" />
+
+    <script>
+      //example $("#element").exists();
+      $.fn.exists = function () {
+        return this.length !== 0;
+      };
+
+      //fix ajax always happen jqXHR.status === 0
+      $(document).ajaxError(function (e, jqxhr, settings, exception) {
+        if (jqxhr.readyState == 0 || jqxhr.status == 0) {
+          alert('ajaxError(){ jqxhr.readyState == 0 || jqxhr.status == 0 }');
+          return; // Skip this error
+        }
+      });
+    </script>
+
+    <link href="web/css/layout.css" rel="stylesheet" />
+    <link href="web/assets/fontello/css/fontello.css" rel="stylesheet" />
+    <link href="styles/custom.css" rel="stylesheet" />
+
+    <script src="javascript/common_datepicker.js"></script>
+    <script src="javascript/jquery.twzipcode.min.js"></script>
+  </head>
+  <body>
+    <div class="wrap mp">
+      <script language="JavaScript">
+        var timeOut = 900; //15分鐘
+        $(function () {
+          if (true) showTimeOut();
+        });
+
+        function showTimeOut() {
+          timeOut -= 1;
+
+          if (timeOut == 0) {
+            if (confirm('您已閒置未使用系統達15分鐘，系統已強制登出，請重新登入。')) {
+              doLogout();
+            } else {
+              doLogout();
+            }
+          } else {
+            var m = Math.floor((timeOut % 3600) / 60);
+            var s = Math.floor(timeOut % 60);
+            if (m < 10) {
+              m = '0' + m;
+            }
+            if (s < 10) {
+              s = '0' + s;
+            }
+
+            document.getElementById('numberSec').innerHTML = '距離登出還有' + m + ':' + s;
+
+            //每秒執行一次,showTimeOut()
+            setTimeout(showTimeOut, 1000);
+          }
+        }
+
+        function doLogout() {
+          formLogout.submit();
+        }
+      </script>
+
+      <header>
+        <h1><a href="/RES/home.action" class="logo1">風險評估及產品危險預防對策系統</a></h1>
+
+        <div class="user">
+          <span id="numberSec" style="color: blue">距離登出還有14:47</span>
+
+          <a href="javascript:void(0);" onclick="doLogout();"> 登出 </a>
+        </div>
+      </header>
+
+      <form id="formLogout" action="/RES/j_spring_security_logout" method="POST">
+        <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" />
+      </form>
+
+      <main class="clear-fix">
+        <div class="Left Menu">
+          <div class="box btn-box">
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('home')">風險評估撰寫</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('editCompany')">步驟一：廠商及人員資料</a><br />
+
+            <a href="###" class="btn positive" style="width: 235px; text-align: left" onclick="navigator('editEquipment')">步驟二：機械設備基本資訊</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('editRiskLevelDef')">步驟三：風險等級定義</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('listHazardItem')">步驟四：危害辨識</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('listEvaluation')">步驟五：風險評估</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('listCountermeasure')">步驟六：降低對策</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('downloadRiskEvaluationReport')">風險評估報告下載</a><br />
+          </div>
+
+          <form id="home" name="home" action="/RES/home.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" />
+            </table>
+          </form>
+
+          <form id="editCompany" name="editCompany" action="/RES/front/riskEvaluation/editCompany.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" />
+            </table>
+          </form>
+
+          <form id="editEquipment" name="editEquipment" action="/RES/front/riskEvaluation/editEquipment.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" />
+            </table>
+          </form>
+
+          <form id="editRiskLevelDef" name="editRiskLevelDef" action="/RES/front/riskEvaluation/editRiskLevelDef.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" />
+            </table>
+          </form>
+
+          <form id="listHazardItem" name="listHazardItem" action="/RES/front/riskEvaluation/listHazardItem.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" />
+            </table>
+          </form>
+
+          <form id="listEvaluation" name="listEvaluation" action="/RES/front/riskEvaluation/listEvaluation.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" />
+            </table>
+          </form>
+
+          <form id="listCountermeasure" name="listCountermeasure" action="/RES/front/riskEvaluation/listCountermeasure.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" />
+            </table>
+          </form>
+
+          <form id="downloadRiskEvaluationReport" name="downloadRiskEvaluationReport" action="/RES/front/riskEvaluation/downloadRiskEvaluationReport.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" />
+            </table>
+          </form>
+
+          <script>
+            $(function () {});
+
+            function navigator(action) {
+              if (false && action != 'home') {
+                alert('尚未開始進行風險評估!');
+                return false;
+              } else {
+                document.getElementById(action).submit();
+              }
+            }
+          </script>
+        </div>
+        <div class="Right Content">
+          <form id="saveEquipment" name="saveEquipment" action="/RES/front/riskEvaluation/saveEquipment.action" method="post">
+            <div class="box Table">
+              <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" />
+
+              <input type="hidden" name="targetObject.rbId" value="PR20250506S006" id="saveEquipment_targetObject_rbId" />
+              <input type="hidden" name="targetObject.authNumber" value="hdxUXMRu31" id="saveEquipment_targetObject_authNumber" />
+              <input type="hidden" name="targetObject.status" value="N" id="saveEquipment_targetObject_status" />
+              <input type="hidden" name="targetObject.comId" value="2c991630969e4e7d0196a51d94850005" id="saveEquipment_targetObject_comId" />
+              <input type="hidden" name="targetObject.etId" value="2c991630969e4e7d0196a51d94850006" id="saveEquipment_targetObject_etId" />
+              <input type="hidden" name="targetObject.eqId" value="2c991630969e4e7d0196a51db9c00007" id="saveEquipment_targetObject_eqId" />
+              <input type="hidden" name="targetObject.defId" value="2c991630969e709c0196a51dc132000b" id="saveEquipment_targetObject_defId" />
+              <input type="hidden" name="targetObject.createDate" value="2025/5/6 下午6:21:14.000" id="saveEquipment_targetObject_createDate" />
+
+              <h2>步驟二：機械設備基本資訊</h2>
+
+              <table>
+                <tbody>
+                  <tr>
+                    <th>* 產品中文名稱：</th>
+                    <td><input type="text" name="targetObject.equipment.nameCh" size="20" value="111" id="nameCh" /></td>
+                    <th>產品英文名稱：</th>
+                    <td><input type="text" name="targetObject.equipment.nameEn" size="20" value="" id="saveEquipment_targetObject_equipment_nameEn" /></td>
+                  </tr>
+                  <tr>
+                    <th>類型：</th>
+                    <td>
+                      <select name="targetObject.equipment.eqClass" id="eqClass">
+                        <option value="">請選擇</option>
+                        <option value="machine_06" selected="selected">剪床</option>
+                        <option value="machine_07">摺床</option>
+                        <option value="machine_08">機器人</option>
+                        <option value="machine_09">射出成形機</option>
+                        <option value="machine_10">放電加工機</option>
+                        <option value="machine_11">中空成型機</option>
+                        <option value="machine_12">押出成型機</option>
+                        <option value="machine_13">粉碎機</option>
+                        <option value="machine_14">食品加工-行星式攪拌機</option>
+                        <option value="machine_15">輸送設備</option>
+                        <option value="MT0010">金屬切削車床</option>
+                        <option value="MT0020">機械式衝床</option>
+                        <option value="MT0030">金屬切削銑床</option>
+                        <option value="MT0040">金屬切削鋸床</option>
+                        <option value="MT0050">金屬加工磨床</option>
+                      </select>
+                    </td>
+                    <th>主型式：</th>
+                    <td><input type="text" name="targetObject.equipment.mainType" size="20" value="" id="rbId" /></td>
+                  </tr>
+                  <tr>
+                    <th>系列型式：</th>
+                    <td colspan="3"><textarea name="targetObject.equipment.setType" cols="60" rows="2" id="saveEquipment_targetObject_equipment_setType"></textarea></td>
+                  </tr>
+                  <tr>
+                    <th>機台用途：</th>
+                    <td><input type="text" name="targetObject.equipment.application" size="20" value="" id="rbId" /></td>
+                    <th>動力源：</th>
+                    <td><input type="text" name="targetObject.equipment.powerSupply" size="20" value="" id="rbId" /></td>
+                  </tr>
+                  <tr>
+                    <th>產品照片：</th>
+                    <td colspan="3">
+                      <span style="color: red">支援格式:jpg、png、gif、jpeg　　上傳限制數量:10</span>
+
+                      <!-- 是否為單檔上傳模式 -->
+
+                      <table id="upload_file_001" class="noBorderTable">
+                        <tbody>
+                          <tr>
+                            <td class="upload-operation-area" style="vertical-align: top; border: 0px; width: 1px">
+                              <span class="upload_data" data-upload-mapping-code="001" data-singile-file="false" data-max-file-upload-size="2" data-accept-file-types="^(jpg|png|gif|jpeg)$" data-encrypt="true" data-show-if-image="true"></span>
+
+                              <span class="fileinput-button">
+                                <div class="fileinput-button-span"></div>
+                                <input class="fileupload" type="file" name="files[]" multiple="" />
+                              </span>
+                            </td>
+                            <td>
+                              <table class="upload_detail"></table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+
+              <script>
+                var delConfirmMsg = '確認刪除檔案？';
+
+                $(function () {
+                  bindFileuploadEvent();
+                });
+
+                function bindFileuploadEvent() {
+                  var upload_url = '/RES/upload';
+
+                  $('.fileupload').each(function () {
+                    var maxFileUploadSize; // = 10;	//defaul size of upload limitation : 10M
+                    // 		var acceptFileTypes = new RegExp('^(xls|xlsx|doc|docx|txt|pdf)$', 'i');// 檔案格式限制
+                    var acceptFileTypes = new RegExp('^(xls|xlsx|doc|docx|txt|pdf|jpg|png|gif|jpeg|avi|flv|wmv|mov|mp4)$', 'i'); // 檔案格式限制
+                    $(this).fileupload({
+                      dataType: 'json',
+                      url: upload_url,
+                      dropZone: $(this),
+                      limitConcurrentUploads: 3, //同時上傳數
+                      add: function (e, data) {
+                        var uploadErrors = [];
+
+                        var parentBlock = $(this).parent().parent().parent().get(0);
+                        var detailBlock = $(parentBlock).find('.upload_detail');
+
+                        var upload_data = $(parentBlock).find('.upload_data');
+                        data.uploadMappingCode = upload_data.data('upload-mapping-code');
+                        data.singileFile = upload_data.data('singile-file');
+                        data.maxFileUploadSize = upload_data.data('max-file-upload-size');
+                        data.acceptFileTypes = upload_data.data('accept-file-types');
+                        data.showIfImage = upload_data.data('show-if-image');
+
+                        //是否加密
+                        data.formData = { isEncrypt: upload_data.data('encrypt') };
+
+                        if (data.maxFileUploadSize) {
+                          maxFileUploadSize = data.maxFileUploadSize;
+                        }
+
+                        if (data.acceptFileTypes) {
+                          acceptFileTypes = new RegExp(data.acceptFileTypes, 'i');
+                        }
+
+                        $(data.originalFiles).each(function () {
+                          var originalFile = this;
+                          var filename = originalFile['name'] || '';
+                          var fileext = filename.split('.').pop().toLowerCase();
+                          if (acceptFileTypes && fileext && !acceptFileTypes.test(fileext)) {
+                            uploadErrors.push('上傳失敗，檔案格式錯誤!');
+                            return;
+                          }
+                          if (maxFileUploadSize && originalFile['size'] && originalFile['size'] > maxFileUploadSize * 1024 * 1024) {
+                            uploadErrors.push('上傳失敗，超過檔案大小上限 ' + maxFileUploadSize + ' MB!');
+                            return;
+                          }
+                        });
+
+                        if (uploadErrors.length > 0) {
+                          alert(uploadErrors.join('\n'));
+                          return;
+                        }
+
+                        var loadingImg = $('<img class="loading_img" src="/RES/html/images/loading.gif" />');
+
+                        data.context = $('<tr/>').append($('<td/>').attr('colspan', 3).append(loadingImg)).appendTo(detailBlock);
+
+                        //取得「上傳附件按鈕」
+                        data.fileinputButton = $(parentBlock).find('.upload-operation-area');
+                        data.submit();
+
+                        //若為單檔上傳，則於送出後隱藏上傳鈕
+                        if (data.singileFile === true && data.fileinputButton) {
+                          data.fileinputButton.hide();
+                        }
+                      },
+                      done: function (e, data) {
+                        if (data.result.error) {
+                          //顯示錯誤訊息並中斷
+                          alert(data.result.error);
+                          data.context.find('.loading_img').remove();
+                          data.fileinputButton.show();
+                          return;
+                        }
+
+                        $.each(data.result, function (index, file) {
+                          file.showIfImage = data.showIfImage;
+
+                          file.uploadMappingCode = data.uploadMappingCode;
+                          var uploadUtil = new UploadUtil(upload_url, data.fileinputButton);
+                          var uploadDetailTr = uploadUtil.generateUploadDetailTr(file);
+
+                          //if(data.singileFile===true && data.fileinputButton){
+                          //	data.fileinputButton.hide();
+                          //}
+
+                          data.context.replaceWith(uploadDetailTr);
+                        });
+                      },
+                    });
+                  });
+                }
+
+                //定義檔案上傳處理物件
+                function UploadUtil(upload_url, file_add_button) {
+                  this.upload_url = upload_url;
+                  this.file_add_button = file_add_button;
+                  var _this = this;
+                  this.generateUploadDetailTr = function (file) {
+                    var parentBlock = $(_this.file_add_button).closest('table');
+                    var upload_detail = parentBlock.find('.upload_detail');
+                    var upload_data = parentBlock.find('.upload_data');
+                    var showIfImage = upload_data.data('show-if-image');
+
+                    var delBtn = $('<div class="upload_del"></div>');
+                    delBtn.on('click', function () {
+                      var row = $(this).parent().parent();
+                      var key = file.fileKey;
+
+                      if (confirm(delConfirmMsg) == true) {
+                        row.remove();
+                        if (file_add_button) {
+                          // 若為單檔模式，則在刪除檔案後，將「新增」鍵顯示
+                          file_add_button.show();
+                        }
+
+                        //TODO 是否改成依條件式判斷
+                        /* 暫存檔於排除中刪除，正式檔交由各功能自行刪除
+			    $.get(upload_url+'?o=d&k=' + key, function (data) {			    	
+			    });
+			    */
+                      }
+                    });
+
+                    var mappingCodeInput = $('<input type="hidden" />').attr('name', 'fileUploadBean.mappingCode').attr('value', file.uploadMappingCode);
+
+                    var fileNameInput = $('<input type="hidden" />').attr('name', 'fileUploadBean.fileName').attr('value', file.fileName);
+
+                    var fileDescTxt = '';
+                    var fileDescInput = '';
+
+                    fileDescTxt = '說明:';
+                    fileDescInput = $('<input type="text" />').attr('name', 'fileUploadBean.fileDesc').attr('value', file.fileDesc);
+
+                    var fileKeyInput = $('<input type="hidden" />').attr('name', 'fileUploadBean.fileKey').attr('value', file.fileKey);
+
+                    var downUrl = upload_url + '?k=' + file.fileKey;
+
+                    var presentHtml = '<a href="' + downUrl + '">' + file.fileName + '</a>';
+                    if (showIfImage === true && _this.isImageType(file)) {
+                      presentHtml = '<a target="_blank" href="' + downUrl + '">' + '<img class="fileImage" width="40px" src="' + downUrl + '">' + '</a>';
+                    }
+
+                    var uploadDetailTr = $('<tr/>')
+                      .attr('id', file.fileKey)
+                      .append($('<td style="white-space: nowrap;width:10px"></td>').append(delBtn))
+                      .append($('<td style="white-space: nowrap"></td>').html(presentHtml))
+                      .append($('<td style="white-space: nowrap"></td>').html(fileDescTxt).append(fileNameInput).append(fileDescInput).append(fileKeyInput).append(mappingCodeInput));
+
+                    return uploadDetailTr;
+                  };
+
+                  this.checkUploadLoadingComplete = function () {
+                    return $('.loading_img').length === 0;
+                  };
+
+                  this.initFiles = function (files) {
+                    var parentBlock = this.file_add_button.closest('table');
+                    var upload_detail = parentBlock.find('.upload_detail');
+                    var singileFile = parentBlock.find('.upload_data').data('singile-file');
+
+                    var genFun = this.generateUploadDetailTr;
+                    $.each(files, function (index, file) {
+                      var tr = genFun(file);
+                      upload_detail.append(tr);
+
+                      //若為單檔上傳，則於送出後隱藏上傳鈕
+                      if (singileFile === true && file_add_button) {
+                        file_add_button.hide();
+                      }
+                    });
+                  };
+
+                  // check file type is image
+                  this.isImageType = function (file) {
+                    if (file.fileName == null) return false;
+
+                    return file.fileName.match(/jpe?g$/i) != null || file.fileName.match(/png$/i) != null || file.fileName.match(/gif$/i) != null;
+                  };
+                }
+              </script>
+
+              <div align="center">
+                <a href="###" class="btn positive" onclick="submit();"> 下一步 </a>
+              </div>
+            </div>
+          </form>
+
+          <script>
+            $(function () {
+              var file;
+              var upload_detail = $('#upload_file_001').find('.upload_detail');
+              var uploadUtil = new UploadUtil('/RES/upload', $('#upload_file_001').find('.upload-operation-area'));
+            });
+
+            function submit() {
+              if (jQuery('#nameCh').val() == '') {
+                alert('請輸入產品中文名稱！');
+                return false;
+              } else if (jQuery('#eqClass').val() == '') {
+                alert('請選擇類型！');
+                return false;
+              } else {
+                document.getElementById('saveEquipment').submit();
+              }
+            }
+
+            $('.fileupload:eq(0)').on('click', function () {
+              if ($('.upload_detail').children('tr').length >= 10) {
+                alert('照片上傳數量已達上限！');
+                return false;
+              }
+            });
+          </script>
+        </div>
+      </main>
+
+      <footer>
+        <p>勞動部職業安全衛生署 版權所有© 2019 All Right Reserved</p>
+      </footer>
+    </div>
+  </body>
+</html>

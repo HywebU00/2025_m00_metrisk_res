@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>風險評估及產品危險預防對策系統</title>
+
+    <script src="javascript/common_utils.js"></script>
+    <script src="javascript/common_form_utils.js"></script>
+    <script src="javascript/formvalidator.js"></script>
+    <!-- sweetalert start -->
+    <script src="javascript/sweetalert.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="styles/sweetalert.css" />
+    <script type="text/javascript">
+      <!--
+      (function () {
+        window.alert = function () {
+          return swal.apply(this, arguments);
+        };
+      })(window.alert);
+      //-->
+    </script>
+    <!-- sweetalert end -->
+
+    <script type="text/javascript" src="javascript/jquery/jquery-3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery/jquery-migrate-3.0.1/jquery-migrate-3.0.1.min.js"></script>
+    <link href="styles/jquery/jquery-ui-1.12.1.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="javascript/jquery/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="javascript/jquery/jquery.cookie.js?1=1"></script>
+
+    <script type="text/javascript" src="javascript/jquery/jquery.blockUI.js"></script>
+
+    <!-- jquery file upload -->
+    <link href="styles/jquery/upload/jquery.fileupload.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="javascript/jquery/upload/jquery.iframe-transport.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/10.2.0/js/jquery.fileupload.js"></script>
+
+    <!-- datepicker zh-TW -->
+    <script src="javascript/jquery/jquery.ui.datepicker-zh-TW.js"></script>
+
+    <script src="javascript/jquery/jquery.maskedinput.js"></script>
+
+    <!-- multi calendar select -->
+    <script src="javascript/jquery/jquery-ui.multidatespicker.js"></script>
+
+    <script src="javascript/jquery/jquery.popupWindow.js"></script>
+
+    <!-- datetimepicker -->
+    <script src="javascript/jquery/jquery-ui-timepicker-addon.js"></script>
+    <link rel="Stylesheet" type="text/css" href="styles/jquery/jquery-ui-timepicker-addon.css" />
+
+    <!-- smooth div scroll -->
+    <link rel="Stylesheet" type="text/css" href="styles/jquery/smoothDivScroll/smoothDivScroll.css" />
+    <script src="javascript/jquery/smoothDivScroll/jquery.mousewheel.min.js"></script>
+    <script src="javascript/jquery/smoothDivScroll/jquery.kinetic.min.js"></script>
+    <script src="javascript/jquery/smoothDivScroll/jquery.smoothdivscroll-1.3-min.js"></script>
+
+    <!-- jquery plugin select2 -->
+    <script src="javascript/jquery/select2/select2.min.js"></script>
+    <link rel="Stylesheet" type="text/css" href="styles/jquery/select2/select2.min.css" />
+
+    <script>
+      //example $("#element").exists();
+      $.fn.exists = function () {
+        return this.length !== 0;
+      };
+
+      //fix ajax always happen jqXHR.status === 0
+      $(document).ajaxError(function (e, jqxhr, settings, exception) {
+        if (jqxhr.readyState == 0 || jqxhr.status == 0) {
+          alert('ajaxError(){ jqxhr.readyState == 0 || jqxhr.status == 0 }');
+          return; // Skip this error
+        }
+      });
+    </script>
+
+    <link href="web/css/layout.css" rel="stylesheet" />
+    <link href="web/assets/fontello/css/fontello.css" rel="stylesheet" />
+    <link href="styles/custom.css" rel="stylesheet" />
+
+    <script src="javascript/common_datepicker.js"></script>
+    <script src="javascript/jquery.twzipcode.min.js"></script>
+  </head>
+  <body>
+    <div class="wrap mp">
+      <script language="JavaScript">
+        var timeOut = 900; //15分鐘
+        $(function () {
+          if (true) showTimeOut();
+        });
+
+        function showTimeOut() {
+          timeOut -= 1;
+
+          if (timeOut == 0) {
+            if (confirm('您已閒置未使用系統達15分鐘，系統已強制登出，請重新登入。')) {
+              doLogout();
+            } else {
+              doLogout();
+            }
+          } else {
+            var m = Math.floor((timeOut % 3600) / 60);
+            var s = Math.floor(timeOut % 60);
+            if (m < 10) {
+              m = '0' + m;
+            }
+            if (s < 10) {
+              s = '0' + s;
+            }
+
+            document.getElementById('numberSec').innerHTML = '距離登出還有' + m + ':' + s;
+
+            //每秒執行一次,showTimeOut()
+            setTimeout(showTimeOut, 1000);
+          }
+        }
+
+        function doLogout() {
+          formLogout.submit();
+        }
+      </script>
+
+      <header>
+        <h1><a href="/RES/home.action" class="logo1">風險評估及產品危險預防對策系統</a></h1>
+
+        <div class="user">
+          <span id="numberSec" style="color: blue"></span>
+
+          <a href="javascript:void(0);" onclick="doLogout();"> 登出 </a>
+        </div>
+      </header>
+
+      <form id="formLogout" action="/RES/j_spring_security_logout" method="POST">
+        <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+      </form>
+
+      <main class="clear-fix">
+        <div class="Left Menu">
+          <div class="box btn-box">
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('home')">風險評估撰寫</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('editCompany')">步驟一：廠商及人員資料</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('editEquipment')">步驟二：機械設備基本資訊</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('editRiskLevelDef')">步驟三：風險等級定義</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('listHazardItem')">步驟四：危害辨識</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('listEvaluation')">步驟五：風險評估</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('listCountermeasure')">步驟六：降低對策</a><br />
+
+            <a href="###" class="btn positive" style="width: 235px; text-align: left" onclick="navigator('downloadRiskEvaluationReport')">風險評估報告下載</a><br />
+          </div>
+
+          <form id="home" name="home" action="/RES/home.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="editCompany" name="editCompany" action="/RES/front/riskEvaluation/editCompany.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="editEquipment" name="editEquipment" action="/RES/front/riskEvaluation/editEquipment.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="editRiskLevelDef" name="editRiskLevelDef" action="/RES/front/riskEvaluation/editRiskLevelDef.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="listHazardItem" name="listHazardItem" action="/RES/front/riskEvaluation/listHazardItem.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="listEvaluation" name="listEvaluation" action="/RES/front/riskEvaluation/listEvaluation.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="listCountermeasure" name="listCountermeasure" action="/RES/front/riskEvaluation/listCountermeasure.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="downloadRiskEvaluationReport" name="downloadRiskEvaluationReport" action="/RES/front/riskEvaluation/downloadRiskEvaluationReport.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <script>
+            $(function () {});
+
+            function navigator(action) {
+              if (false && action != 'home') {
+                alert('尚未開始進行風險評估!');
+                return false;
+              } else {
+                document.getElementById(action).submit();
+              }
+            }
+          </script>
+        </div>
+        <div class="Right Content">
+          <div class="box Table">
+            <h2>風險評估報告下載</h2>
+
+            <div align="center">
+              <a href="javascript:exportPdf();" class="btn positive">風險評估報告下載</a>
+              <a href="javascript:openQuestionnaire();" class="btn positive">填寫問卷</a>
+            </div>
+          </div>
+
+          <br />
+          <div class="box Table" id="info">
+            <table class="horizontal">
+              <thead>
+                <tr>
+                  <th style="background-color: #ffcaaa"></th>
+
+                  <th style="background-color: #ffcaaa">機械危害</th>
+
+                  <th style="background-color: #ffcaaa">電氣危害</th>
+
+                  <th style="background-color: #ffcaaa">熱危害</th>
+
+                  <th style="background-color: #ffcaaa">噪音危害</th>
+
+                  <th style="background-color: #ffcaaa">振動危害</th>
+
+                  <th style="background-color: #ffcaaa">輻射危害</th>
+
+                  <th style="background-color: #ffcaaa">材料/物質之危害</th>
+
+                  <th style="background-color: #ffcaaa">人因工程危害</th>
+
+                  <th style="background-color: #ffcaaa">與機器使用環境相關危害</th>
+
+                  <th style="background-color: #ffcaaa">多重危害組合</th>
+                </tr>
+
+                <tr>
+                  <th nowrap style="background-color: #ffcaaa">搬運輸送</th>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+                </tr>
+
+                <tr>
+                  <th nowrap style="background-color: #ffcaaa">組裝、安裝、試運轉</th>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff">V</td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff">V</td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+                </tr>
+
+                <tr>
+                  <th nowrap style="background-color: #ffcaaa">設定</th>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+                </tr>
+
+                <tr>
+                  <th nowrap style="background-color: #ffcaaa">操作</th>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+                </tr>
+
+                <tr>
+                  <th nowrap style="background-color: #ffcaaa">清潔、維護</th>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+                </tr>
+
+                <tr>
+                  <th nowrap style="background-color: #ffcaaa">偵錯/故障診斷</th>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff">V</td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+                </tr>
+
+                <tr>
+                  <th nowrap style="background-color: #ffcaaa">拆卸、失能、停用、報廢</th>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+          <form id="exportRiskEvaluationReport" name="exportRiskEvaluationReport" action="/RES/front/riskEvaluation/exportRiskEvaluationReport.action" method="post">
+            <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+          </form>
+
+          <script>
+            function exportPdf() {
+              $('#exportRiskEvaluationReport')[0].submit();
+            }
+
+            function openQuestionnaire() {
+              window.open('/onlineQuiz/login?rbId=PR20250506S005');
+            }
+          </script>
+        </div>
+      </main>
+
+      <footer>
+        <p>勞動部職業安全衛生署 版權所有© 2019 All Right Reserved</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -156,7 +156,7 @@ textarea {
   padding: 8px 12px;
 }
 form label {
-  display: inline-block;
+  /* display: inline-block; */
   text-align: right;
   vertical-align: middle;
 }
@@ -438,6 +438,7 @@ a.btn.add {
   margin-top: 0;
   width: 70%;
   margin-left: 2%;
+  position: relative;
 }
 .mp main .Center {
   margin: 0;
@@ -613,6 +614,7 @@ a.btn.add {
 }
 .mp main .Left {
   width: 290px;
+  position: relative;
 }
 .mp main .Menu {
   width: 290px;
@@ -1247,3 +1249,106 @@ nav li a:hover {
   margin: 6px auto 6px 2px;
 }
 /*# sourceMappingURL=layout.css.map */
+
+/* 202505 add */
+a.goCenter {
+  position: absolute;
+  top: -2.2em;
+  left: 50%;
+  margin-left: -480px;
+  padding: 0 0.5em;
+  height: 2em;
+  line-height: 2em;
+  background: #666;
+  color: #fff;
+  text-decoration: none;
+  z-index: 999999999999;
+  opacity: 0;
+  transition: 0.5s;
+  border-radius: 0px 0px 4px 4px;
+  color: #fff;
+}
+a.goCenter:hover,
+a.goCenter:focus,
+a.goCenter:focus-visible {
+  background: #333;
+  top: 0;
+  opacity: 1;
+  box-shadow: none;
+  color: #fff;
+}
+
+.breadcrumb {
+  /* border-bottom: 1px solid #eee; */
+  padding: 0.1em 0em 1em;
+  font-size: 0.938em;
+  margin: 0px auto 5px;
+}
+.breadcrumb ul {
+  @include liReset;
+  display: flex;
+  flex-flow: row wrap;
+}
+.breadcrumb ul li {
+  margin: 0.5em 0.1em 0.5em 0px;
+  color: #1b7a96;
+}
+.breadcrumb ul li + li:before {
+  content: ' / ';
+  display: inline-block;
+  padding: 0px 4px;
+  margin: 0px 5px 0px 5px;
+  color: #ccc;
+}
+.breadcrumb a {
+  text-decoration: none;
+  color: #222;
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus {
+  color: #bc5801;
+}
+.accessKey {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 9;
+  color: #fff;
+  font-size: 1em;
+  text-decoration: none;
+}
+.accessKey:hover {
+  color: #222;
+}
+.accessKey:focus-visible {
+  color: #222;
+  font-weight: bold;
+}
+/* scrollTop */
+.scrollToTop {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: url(../images/icon_top.svg) no-repeat center top rgba(0, 0, 0, 0.4);
+  text-align: center;
+  color: #fff;
+  line-height: 50px;
+  text-decoration: none;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  transition: 0.3s ease-out;
+  display: none;
+  z-index: 99999999;
+  text-indent: -999999px;
+}
+.scrollToTop:hover,
+.scrollToTop:focus-visible {
+  background: url(../images/icon_top.svg) no-repeat center top rgba(0, 0, 0, 0.8);
+  box-shadow: none;
+}
+
+.necessary {
+  color: #c00;
+}

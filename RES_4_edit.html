@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>風險評估及產品危險預防對策系統</title>
+
+    <script src="javascript/common_utils.js"></script>
+    <script src="javascript/common_form_utils.js"></script>
+    <script src="javascript/formvalidator.js"></script>
+    <!-- sweetalert start -->
+    <script src="javascript/sweetalert.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="styles/sweetalert.css" />
+    <script type="text/javascript">
+      <!--
+      (function () {
+        window.alert = function () {
+          return swal.apply(this, arguments);
+        };
+      })(window.alert);
+      //-->
+    </script>
+    <!-- sweetalert end -->
+
+    <script type="text/javascript" src="javascript/jquery/jquery-3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery/jquery-migrate-3.0.1/jquery-migrate-3.0.1.min.js"></script>
+    <link href="styles/jquery/jquery-ui-1.12.1.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="javascript/jquery/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="javascript/jquery/jquery.cookie.js?1=1"></script>
+
+    <script type="text/javascript" src="javascript/jquery/jquery.blockUI.js"></script>
+
+    <!-- jquery file upload -->
+    <link href="styles/jquery/upload/jquery.fileupload.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="javascript/jquery/upload/jquery.iframe-transport.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/10.2.0/js/jquery.fileupload.js"></script>
+
+    <!-- datepicker zh-TW -->
+    <script src="javascript/jquery/jquery.ui.datepicker-zh-TW.js"></script>
+
+    <script src="javascript/jquery/jquery.maskedinput.js"></script>
+
+    <!-- multi calendar select -->
+    <script src="javascript/jquery/jquery-ui.multidatespicker.js"></script>
+
+    <script src="javascript/jquery/jquery.popupWindow.js"></script>
+
+    <!-- datetimepicker -->
+    <script src="javascript/jquery/jquery-ui-timepicker-addon.js"></script>
+    <link rel="Stylesheet" type="text/css" href="styles/jquery/jquery-ui-timepicker-addon.css" />
+
+    <!-- smooth div scroll -->
+    <link rel="Stylesheet" type="text/css" href="styles/jquery/smoothDivScroll/smoothDivScroll.css" />
+    <script src="javascript/jquery/smoothDivScroll/jquery.mousewheel.min.js"></script>
+    <script src="javascript/jquery/smoothDivScroll/jquery.kinetic.min.js"></script>
+    <script src="javascript/jquery/smoothDivScroll/jquery.smoothdivscroll-1.3-min.js"></script>
+
+    <!-- jquery plugin select2 -->
+    <script src="javascript/jquery/select2/select2.min.js"></script>
+    <link rel="Stylesheet" type="text/css" href="styles/jquery/select2/select2.min.css" />
+
+    <script>
+      //example $("#element").exists();
+      $.fn.exists = function () {
+        return this.length !== 0;
+      };
+
+      //fix ajax always happen jqXHR.status === 0
+      $(document).ajaxError(function (e, jqxhr, settings, exception) {
+        if (jqxhr.readyState == 0 || jqxhr.status == 0) {
+          alert('ajaxError(){ jqxhr.readyState == 0 || jqxhr.status == 0 }');
+          return; // Skip this error
+        }
+      });
+    </script>
+
+    <link href="web/css/layout.css" rel="stylesheet" />
+    <link href="web/assets/fontello/css/fontello.css" rel="stylesheet" />
+    <link href="styles/custom.css" rel="stylesheet" />
+
+    <script src="javascript/common_datepicker.js"></script>
+    <script src="javascript/jquery.twzipcode.min.js"></script>
+  </head>
+  <body>
+    <div class="wrap mp">
+      <script language="JavaScript">
+        var timeOut = 900; //15分鐘
+        $(function () {
+          if (true) showTimeOut();
+        });
+
+        function showTimeOut() {
+          timeOut -= 1;
+
+          if (timeOut == 0) {
+            if (confirm('您已閒置未使用系統達15分鐘，系統已強制登出，請重新登入。')) {
+              doLogout();
+            } else {
+              doLogout();
+            }
+          } else {
+            var m = Math.floor((timeOut % 3600) / 60);
+            var s = Math.floor(timeOut % 60);
+            if (m < 10) {
+              m = '0' + m;
+            }
+            if (s < 10) {
+              s = '0' + s;
+            }
+
+            document.getElementById('numberSec').innerHTML = '距離登出還有' + m + ':' + s;
+
+            //每秒執行一次,showTimeOut()
+            setTimeout(showTimeOut, 1000);
+          }
+        }
+
+        function doLogout() {
+          formLogout.submit();
+        }
+      </script>
+
+      <header>
+        <h1><a href="/RES/home.action" class="logo1">風險評估及產品危險預防對策系統</a></h1>
+
+        <div class="user">
+          <span id="numberSec" style="color: blue"></span>
+
+          <a href="javascript:void(0);" onclick="doLogout();"> 登出 </a>
+        </div>
+      </header>
+
+      <form id="formLogout" action="/RES/j_spring_security_logout" method="POST">
+        <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+      </form>
+
+      <main class="clear-fix">
+        <div class="Left Menu">
+          <div class="box btn-box">
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('home')">風險評估撰寫</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('editCompany')">步驟一：廠商及人員資料</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('editEquipment')">步驟二：機械設備基本資訊</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('editRiskLevelDef')">步驟三：風險等級定義</a><br />
+
+            <a href="###" class="btn positive" style="width: 235px; text-align: left" onclick="navigator('listHazardItem')">步驟四：危害辨識</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('listEvaluation')">步驟五：風險評估</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('listCountermeasure')">步驟六：降低對策</a><br />
+
+            <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('downloadRiskEvaluationReport')">風險評估報告下載</a><br />
+          </div>
+
+          <form id="home" name="home" action="/RES/home.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="editCompany" name="editCompany" action="/RES/front/riskEvaluation/editCompany.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="editEquipment" name="editEquipment" action="/RES/front/riskEvaluation/editEquipment.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="editRiskLevelDef" name="editRiskLevelDef" action="/RES/front/riskEvaluation/editRiskLevelDef.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="listHazardItem" name="listHazardItem" action="/RES/front/riskEvaluation/listHazardItem.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="listEvaluation" name="listEvaluation" action="/RES/front/riskEvaluation/listEvaluation.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="listCountermeasure" name="listCountermeasure" action="/RES/front/riskEvaluation/listCountermeasure.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <form id="downloadRiskEvaluationReport" name="downloadRiskEvaluationReport" action="/RES/front/riskEvaluation/downloadRiskEvaluationReport.action" method="POST">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <script>
+            $(function () {});
+
+            function navigator(action) {
+              if (false && action != 'home') {
+                alert('尚未開始進行風險評估!');
+                return false;
+              } else {
+                document.getElementById(action).submit();
+              }
+            }
+          </script>
+        </div>
+        <div class="Right Content">
+          <form id="addHazardItem" name="addHazardItem" action="/RES/front/riskEvaluation/addHazardItem.action" method="post">
+            <div class="box Table">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+
+              <h2>步驟四：危害辨識</h2>
+
+              <table>
+                <tr>
+                  <th>危害源：</th>
+                  <td>
+                    危害類別<select name="targetObject.sourceObj.type" id="type" style="width: 200px" onchange="changeOrigin();">
+                      <option value="">請選擇</option>
+                      <option value="2c9916307e096e64017ed2d812080053">機械危害</option>
+                      <option value="2c9916307e0970a7017ed2d83c930054">電氣危害</option>
+                      <option value="2c9916307e0970a7017ed2d870a30055">熱危害</option>
+                      <option value="2c9916307e0970a7017ed2d894a60056">噪音危害</option>
+                      <option value="2c9916307e096e64017ed2d8bafa0054">振動危害</option>
+                      <option value="2c9916307e096e64017ed2d8e5660055">輻射危害</option>
+                      <option value="2c9916307e0970a7017ed2d927220057">材料/物質之危害</option>
+                      <option value="2c9916307e096e64017ed2d95cb90056">人因工程危害</option>
+                      <option value="2c9916307e0970a7017ed2d984a30058">與機器使用環境相關危害</option>
+                      <option value="2c9916307e096e64017ed2d9aa5c0057">多重危害組合</option>
+                    </select>
+
+                    <br />
+                    危險源　<select name="targetObject.sourceObj.origin" id="origin" style="width: 200px">
+                      <option value="">請選擇</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>危害狀況：</th>
+                  <td>
+                    機械階段<select name="targetObject.situationObj.stage" id="stage" style="width: 350px" onchange="changeTask();">
+                      <option value="">請選擇</option>
+                    </select>
+
+                    <br />
+                    任務　　<select name="targetObject.situationObj.task" id="task" style="width: 350px" onchange="otherOption(this);">
+                      <option value="">請選擇</option>
+                    </select>
+
+                    <input type="text" name="targetObject.situationObj.customTask" size="20" value="" id="customTask" style="visibility: hidden" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>危害事件：</th>
+                  <td>
+                    肇災原因<select name="targetObject.eventObj.reason" id="reason" style="width: 380px" onchange="changeResult(this);">
+                      <option value="">請選擇</option>
+                    </select>
+
+                    <input type="text" name="targetObject.eventObj.customReason" size="20" value="" id="customReason" style="visibility: hidden" /><br />
+                    結果　　<select name="targetObject.eventObj.result" id="result" style="width: 380px" onchange="otherOption(this);">
+                      <option value="">請選擇</option>
+                    </select>
+
+                    <input type="text" name="targetObject.eventObj.customResult" size="20" value="" id="customResult" style="visibility: hidden" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>危害區域：</th>
+                  <td><textarea name="targetObject.region" cols="50" rows="2" id="addHazardItem_targetObject_region"></textarea></td>
+                </tr>
+              </table>
+              <br />
+
+              <script>
+                function changeOrigin() {
+                  $('#origin').next('input').css('visibility', 'hidden');
+                  $('#origin').html("<option value=''>請選擇</option>");
+                  $('#stage').next('input').css('visibility', 'hidden');
+                  $('#stage').html("<option value=''>請選擇</option>");
+                  $('#task').next('input').css('visibility', 'hidden');
+                  $('#task').next('input').val('');
+                  $('#task').html("<option value=''>請選擇</option>");
+                  $('#reason').next('input').css('visibility', 'hidden');
+                  $('#reason').html("<option value=''>請選擇</option>");
+                  $('#reason').next('input').val('');
+                  $('#result').next('input').css('visibility', 'hidden');
+                  $('#result').next('input').val('');
+                  $('#result').html("<option value=''>請選擇</option>");
+                  if ($('#type').val() != '') {
+                    $.ajax({
+                      type: 'POST',
+                      url: '/RES/front/riskEvaluation/changeOriginOption.action',
+                      data: {
+                        upLevelId: $('#type').val(),
+                      },
+
+                      success: function (data) {
+                        if (data.origin != null) {
+                          for (var i = 0; i < data.origin.length; i++) {
+                            $('#origin').append("<option value='" + data.origin[i].paramId + "'>" + data.origin[i].name + '</option>');
+                          }
+                        }
+                        if (data.stage != null) {
+                          for (var i = 0; i < data.stage.length; i++) {
+                            $('#stage').append("<option value='" + data.stage[i].paramId + "'>" + data.stage[i].name + '</option>');
+                          }
+                        }
+                        if (data.reason != null) {
+                          for (var i = 0; i < data.reason.length; i++) {
+                            $('#reason').append("<option value='" + data.reason[i].paramId + "'>" + data.reason[i].name + '</option>');
+                          }
+                        }
+                      },
+                    });
+                  }
+                }
+
+                function changeTask() {
+                  $('#task').next('input').css('visibility', 'hidden');
+                  $('#task').html("<option value=''>請選擇</option>");
+                  if ($('#stage').val() != '') {
+                    $.ajax({
+                      type: 'POST',
+                      url: '/RES/front/riskEvaluation/changeTaskOption.action',
+                      data: {
+                        upLevelId: $('#stage').val(),
+                      },
+
+                      success: function (data) {
+                        for (var i = 0; i < data.length; i++) {
+                          $('#task').append("<option value='" + data[i].paramId + "'>" + data[i].name + '</option>');
+                        }
+                      },
+                    });
+                  }
+                }
+
+                function changeResult(sel) {
+                  var selectText = sel.options[sel.selectedIndex].text;
+
+                  if (selectText == '其他') {
+                    $('#reason').next('input').css('visibility', 'visible');
+                    $('#result').next('input').css('visibility', 'visible');
+                    $('#result').html("<option value='other'>其他</option>");
+                  } else {
+                    $('#result').next('input').css('visibility', 'hidden');
+                    $('#result').next('input').val('');
+                    $('#reason').next('input').css('visibility', 'hidden');
+                    $('#reason').next('input').val('');
+                    $('#result').html("<option value=''>請選擇</option>");
+                    if ($('#reason').val() != '') {
+                      $.ajax({
+                        type: 'POST',
+                        url: '/RES/front/riskEvaluation/changeResultOption.action',
+                        data: {
+                          upLevelId: $('#reason').val(),
+                        },
+
+                        success: function (data) {
+                          for (var i = 0; i < data.length; i++) {
+                            $('#result').append("<option value='" + data[i].paramId + "'>" + data[i].name + '</option>');
+                          }
+                        },
+                      });
+                    }
+                  }
+                }
+
+                function otherOption(sel) {
+                  var selectText = sel.options[sel.selectedIndex].text;
+
+                  if (selectText == '其他') {
+                    $(sel).next('input').css('visibility', 'visible');
+                  } else {
+                    $(sel).next('input').css('visibility', 'hidden');
+                    $(sel).next('input').val('');
+                  }
+                }
+              </script>
+
+              <div align="center">
+                <a href="###" class="btn positive" onclick="submit();"> 儲存 </a>
+                <a href="###" class="btn negative" onclick="$('#listHazardItem').submit();">回上頁</a>
+              </div>
+            </div>
+          </form>
+
+          <form id="listHazardItem" name="listHazardItem" action="/RES/front/riskEvaluation/listHazardItem.action" method="post">
+            <table class="wwFormTable">
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
+            </table>
+          </form>
+
+          <script>
+            function submit() {
+              var task = document.getElementById('task');
+              var reason = document.getElementById('reason');
+              var result = document.getElementById('result');
+
+              if (jQuery('#type').val() == '') {
+                alert('請選擇危害類別！');
+                return false;
+              } else if (jQuery('#origin').val() == '') {
+                alert('請選擇危險源！');
+                return false;
+              } else if (jQuery('#stage').val() == '') {
+                alert('請選擇機械階段！');
+                return false;
+              } else if (jQuery('#task').val() == '') {
+                alert('請選擇任務！');
+                return false;
+              } else if (jQuery('#reason').val() == '') {
+                alert('請選擇肇災原因！');
+                return false;
+              } else if (jQuery('#result').val() == '') {
+                alert('請選擇結果！');
+                return false;
+              } else if (task.options[task.selectedIndex].text == '其他' && $('#customTask').val() == '') {
+                alert('請輸入任務！');
+                return false;
+              } else if (reason.options[reason.selectedIndex].text == '其他' && $('#customReason').val() == '') {
+                alert('請輸入肇災原因！');
+                return false;
+              } else if (result.options[result.selectedIndex].text == '其他' && $('#customResult').val() == '') {
+                alert('請輸入結果！');
+                return false;
+              } else {
+                document.getElementById('addHazardItem').submit();
+              }
+            }
+          </script>
+        </div>
+      </main>
+
+      <footer>
+        <p>勞動部職業安全衛生署 版權所有© 2019 All Right Reserved</p>
+      </footer>
+    </div>
+  </body>
+</html>
