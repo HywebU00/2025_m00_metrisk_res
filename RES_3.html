@@ -86,6 +86,8 @@
     <script src="javascript/jquery.twzipcode.min.js"></script>
   </head>
   <body>
+    <!-- 直接跳主內容區 -->
+    <a class="goCenter" href="#aC" tabindex="1">按Enter到主內容區</a>
     <div class="wrap mp">
       <script language="JavaScript">
         var timeOut = 900; //15分鐘
@@ -125,6 +127,7 @@
       </script>
 
       <header>
+        <a class="accessKey" href="#aU" id="aU" accesskey="U" title="上方功能區塊" tabindex="2">:::</a>
         <h1><a href="/RES/home.action" class="logo1">風險評估及產品危險預防對策系統</a></h1>
 
         <div class="user">
@@ -140,6 +143,7 @@
 
       <main class="clear-fix">
         <div class="Left Menu">
+          <a class="accessKey" href="#aL" id="aL" accesskey="L" title="左方主選單">:::</a>
           <div class="box btn-box">
             <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('home')">風險評估撰寫</a><br />
 
@@ -220,6 +224,7 @@
           </script>
         </div>
         <div class="Right Content">
+          <a class="accessKey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
           <form id="saveRiskLevelDef" name="saveRiskLevelDef" action="/RES/front/riskEvaluation/saveRiskLevelDef.action" method="post">
             <div class="box Table">
               <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" />
@@ -238,59 +243,59 @@
               <table class="horizontal">
                 <thead>
                   <tr>
-                    <th>風險定義</th>
-                    <th>等級</th>
-                    <th>說明(預設)</th>
-                    <th>自訂(空白表示預設)</th>
+                    <th scope="col">風險定義</th>
+                    <th scope="col">等級</th>
+                    <th scope="col">說明(預設)</th>
+                    <th scope="col">自訂(空白表示預設)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td rowspan="2">傷害的嚴重性(S)</td>
-                    <td nowrap="">輕微(S1)</td>
+                    <td scope="row" rowspan="2">傷害的嚴重性(S)</td>
+                    <td nowrap=""><label for="serverityL">輕微(S1)</label></td>
                     <td>可復原的(非永久性的傷害)，或是≤2天不能進行工作。</td>
                     <td><input type="text" name="targetObject.riskLevelDef.serverityL" size="30" value="可復原的(非永久性的傷害)，或是<=2天不能進行工作。" id="serverityL" /></td>
                   </tr>
                   <tr>
-                    <td>嚴重(S2)</td>
+                    <td><label for="serverityH">嚴重(S2)</label></td>
                     <td>不可復原的(死亡、截肢)，或是&gt;2天不能進行工作。</td>
                     <td><input type="text" name="targetObject.riskLevelDef.serverityH" size="30" value="不可復原的(死亡、截肢)，或是>2天不能進行工作。" id="serverityH" /></td>
                   </tr>
                   <tr>
-                    <td rowspan="2" nowrap="">暴露的頻率與期間(F)</td>
-                    <td>偶而(F1)</td>
+                    <td scope="row" rowspan="2" nowrap="">暴露的頻率與期間(F)</td>
+                    <td><label for="frequencyL">偶而(F1)</label></td>
                     <td>偶而或短暫暴露(每一工作週期≤2次；或累計暴露時間≤15分鐘)</td>
                     <td><input type="text" name="targetObject.riskLevelDef.frequencyL" size="30" value="偶而或短暫暴露(每一工作週期<=2次；或累計暴露時間<=15分鐘)" id="frequencyL" /></td>
                   </tr>
                   <tr>
-                    <td>頻繁(F2)</td>
+                    <td><label for="frequencyH">頻繁(F2)</label></td>
                     <td>頻繁或長時間暴露(每一工作週期&gt;2次；或累計暴露時間&gt;15分鐘)</td>
                     <td><input type="text" name="targetObject.riskLevelDef.frequencyH" size="30" value="頻繁或長時間暴露(每一工作週期>2次；或累計暴露時間>15分鐘)" id="frequencyH" /></td>
                   </tr>
                   <tr>
-                    <td rowspan="3">危害事件因安全防護失效發生的機率(O)</td>
-                    <td>低(O1)</td>
+                    <td scope="row" rowspan="3">危害事件因安全防護失效發生的機率(O)</td>
+                    <td><label for="opportunityL">低(O1)</label></td>
                     <td>不太可能或沒發生過(成熟的技術，已被證實並確認安全的設計)</td>
                     <td><input type="text" name="targetObject.riskLevelDef.opportunityL" size="30" value="不太可能或沒發生過(成熟的技術，已被證實並確認安全的設計)" id="opportunityL" /></td>
                   </tr>
                   <tr>
-                    <td>中(O2)</td>
+                    <td><label for="opportunityM">中(O2)</label></td>
                     <td>偶而發生的(最近兩年內發生過技術故障，由已受良好訓練且在工作站有半年以上工作經驗的勞工所造成)</td>
                     <td><input type="text" name="targetObject.riskLevelDef.opportunityM" size="30" value="偶而發生的(最近兩年內發生過技術故障，由已受良好訓練且在工作站有半年以上工作經驗的勞工所造成)" id="opportunityM" /></td>
                   </tr>
                   <tr>
-                    <td>高(O3)</td>
+                    <td><label for="opportunityH">高(O3)</label></td>
                     <td>定期發生技術故障(每六個月或以下，由未受訓練且在工作站不到半年經驗的勞工所造成)</td>
                     <td><input type="text" name="targetObject.riskLevelDef.opportunityH" size="30" value="定期發生技術故障(每六個月或以下，由未受訓練且在工作站不到半年經驗的勞工所造成)" id="opportunityH" /></td>
                   </tr>
                   <tr>
-                    <td rowspan="2" nowrap="">避免傷害的可能性(A)</td>
-                    <td>可能(A1))</td>
+                    <td scope="row" rowspan="2" nowrap="">避免傷害的可能性(A)</td>
+                    <td><label for="avoidY">可能(A1))</label></td>
                     <td>可能迴避(例如移動零件速度≤250 mm/s且暴露人員熟悉危害狀態，能對其產生反應)<br />– 高/低溫、噪音、人因工程等危害也歸類於此</td>
                     <td><input type="text" name="targetObject.riskLevelDef.avoidY" size="30" value="可能迴避(例如移動零件速度<=250 mm/s且暴露人員熟悉危害狀態，能對其產生反應)" id="avoidY" /></td>
                   </tr>
                   <tr>
-                    <td>不可能(A2)</td>
+                    <td><label for="avoidN">不可能(A2)</label></td>
                     <td>不可能迴避(例如移動零件速度&gt;250 mm/s)</td>
                     <td><input type="text" name="targetObject.riskLevelDef.avoidN" size="30" value="不可能迴避(例如移動零件速度>250 mm/s)" id="avoidN" /></td>
                   </tr>
@@ -299,7 +304,7 @@
               <br />
 
               <div align="center">
-                <a href="###" class="btn positive" onclick="submit();"> 下一步 </a>
+                <a href="###" class="btn positive" onclick="submit();" role="button"> 下一步 </a>
               </div>
             </div>
           </form>
