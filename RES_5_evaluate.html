@@ -86,6 +86,8 @@
     <script src="javascript/jquery.twzipcode.min.js"></script>
   </head>
   <body>
+    <!-- 直接跳主內容區 -->
+    <a class="goCenter" href="#aC" tabindex="1">按Enter到主內容區</a>
     <div class="wrap mp">
       <script language="JavaScript">
         var timeOut = 900; //15分鐘
@@ -125,6 +127,7 @@
       </script>
 
       <header>
+        <a class="accessKey" href="#aU" id="aU" accesskey="U" title="上方功能區塊" tabindex="2">:::</a>
         <h1><a href="/RES/home.action" class="logo1">風險評估及產品危險預防對策系統</a></h1>
 
         <div class="user">
@@ -140,6 +143,7 @@
 
       <main class="clear-fix">
         <div class="Left Menu">
+          <a class="accessKey" href="#aL" id="aL" accesskey="L" title="左方主選單">:::</a>
           <div class="box btn-box">
             <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('home')">風險評估撰寫</a><br />
 
@@ -220,6 +224,14 @@
           </script>
         </div>
         <div class="Right Content">
+          <a class="accessKey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
+          <div aria-label="Breadcrumb" class="breadcrumb">
+            <ul>
+              <li><a href="#">首頁</a></li>
+              <li><a href="#">風險評估撰寫</a></li>
+              <li aria-current="page">步驟五：風險評估編修</li>
+            </ul>
+          </div>
           <form id="saveEvaluation" name="saveEvaluation" action="/RES/front/riskEvaluation/saveEvaluation.action" method="post">
             <div class="box Table">
               <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
@@ -232,13 +244,13 @@
 
               <table>
                 <tr>
-                  <th style="white-space: nowrap">危害源：</th>
+                  <th scope="row" style="white-space: nowrap">危害源：</th>
                   <td>
                     <label id="saveEvaluation_targetObject_hazardItem_sourceObj_type">電氣危害</label>
                     \
                     <label id="saveEvaluation_targetObject_hazardItem_sourceObj_origin">電弧</label>
                   </td>
-                  <th style="white-space: nowrap">危害狀況：</th>
+                  <th scope="row" style="white-space: nowrap">危害狀況：</th>
                   <td>
                     <label id="saveEvaluation_targetObject_hazardItem_situationObj_stage">組裝、安裝、試運轉</label>
                     \
@@ -246,17 +258,17 @@
                   </td>
                 </tr>
                 <tr>
-                  <th style="white-space: nowrap">危害事件：</th>
+                  <th scope="row" style="white-space: nowrap">危害事件：</th>
                   <td>
                     <label id="saveEvaluation_targetObject_hazardItem_eventObj_reason">接線盒</label>
                     \
                     <label id="saveEvaluation_targetObject_hazardItem_eventObj_result">無</label>
                   </td>
-                  <th style="white-space: nowrap">危害區域：</th>
+                  <th scope="row" style="white-space: nowrap">危害區域：</th>
                   <td><label id="saveEvaluation_targetObject_hazardItem_region"></label></td>
                 </tr>
                 <tr>
-                  <th style="white-space: nowrap">風險等級：</th>
+                  <th scope="row" style="white-space: nowrap">風險等級：</th>
                   <td colspan="3">
                     <table>
                       <tr>
