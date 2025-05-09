@@ -86,6 +86,8 @@
     <script src="javascript/jquery.twzipcode.min.js"></script>
   </head>
   <body>
+    <!-- 直接跳主內容區 -->
+    <a class="goCenter" href="#aC" tabindex="1">按Enter到主內容區</a>
     <div class="wrap mp">
       <script language="JavaScript">
         var timeOut = 900; //15分鐘
@@ -125,6 +127,7 @@
       </script>
 
       <header>
+        <a class="accessKey" href="#aU" id="aU" accesskey="U" title="上方功能區塊" tabindex="2">:::</a>
         <h1><a href="/RES/home.action" class="logo1">風險評估及產品危險預防對策系統</a></h1>
 
         <div class="user">
@@ -140,6 +143,7 @@
 
       <main class="clear-fix">
         <div class="Left Menu">
+          <a class="accessKey" href="#aL" id="aL" accesskey="L" title="左方主選單">:::</a>
           <div class="box btn-box">
             <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('home')">風險評估撰寫</a><br />
 
@@ -220,6 +224,14 @@
           </script>
         </div>
         <div class="Right Content">
+          <a class="accessKey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
+          <div aria-label="Breadcrumb" class="breadcrumb">
+            <ul>
+              <li><a href="#">首頁</a></li>
+              <li><a href="#">風險評估撰寫</a></li>
+              <li aria-current="page">步驟四：危害辨識編修</li>
+            </ul>
+          </div>
           <form id="addHazardItem" name="addHazardItem" action="/RES/front/riskEvaluation/addHazardItem.action" method="post">
             <div class="box Table">
               <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
@@ -230,7 +242,8 @@
                 <tr>
                   <th>危害源：</th>
                   <td>
-                    危害類別<select name="targetObject.sourceObj.type" id="type" style="width: 200px" onchange="changeOrigin();">
+                    <label for="type">危害類別</label>
+                    <select name="targetObject.sourceObj.type" id="type" style="width: 200px" onchange="changeOrigin();">
                       <option value="">請選擇</option>
                       <option value="2c9916307e096e64017ed2d812080053">機械危害</option>
                       <option value="2c9916307e0970a7017ed2d83c930054">電氣危害</option>
@@ -245,7 +258,8 @@
                     </select>
 
                     <br />
-                    危險源　<select name="targetObject.sourceObj.origin" id="origin" style="width: 200px">
+                    <label for="origin">危險源　</label>
+                    <select name="targetObject.sourceObj.origin" id="origin" style="width: 200px">
                       <option value="">請選擇</option>
                     </select>
                   </td>
@@ -253,12 +267,14 @@
                 <tr>
                   <th>危害狀況：</th>
                   <td>
-                    機械階段<select name="targetObject.situationObj.stage" id="stage" style="width: 350px" onchange="changeTask();">
+                    <label for="stage">機械階段</label>
+                    <select name="targetObject.situationObj.stage" id="stage" style="width: 350px" onchange="changeTask();">
                       <option value="">請選擇</option>
                     </select>
 
                     <br />
-                    任務　　<select name="targetObject.situationObj.task" id="task" style="width: 350px" onchange="otherOption(this);">
+                    <label for="task">任務　　</label>
+                    <select name="targetObject.situationObj.task" id="task" style="width: 350px" onchange="otherOption(this);">
                       <option value="">請選擇</option>
                     </select>
 
@@ -268,12 +284,14 @@
                 <tr>
                   <th>危害事件：</th>
                   <td>
-                    肇災原因<select name="targetObject.eventObj.reason" id="reason" style="width: 380px" onchange="changeResult(this);">
+                    <label for="reason">肇災原因</label>
+                    <select name="targetObject.eventObj.reason" id="reason" style="width: 380px" onchange="changeResult(this);">
                       <option value="">請選擇</option>
                     </select>
 
                     <input type="text" name="targetObject.eventObj.customReason" size="20" value="" id="customReason" style="visibility: hidden" /><br />
-                    結果　　<select name="targetObject.eventObj.result" id="result" style="width: 380px" onchange="otherOption(this);">
+                    <label for="result">結果　　</label>
+                    <select name="targetObject.eventObj.result" id="result" style="width: 380px" onchange="otherOption(this);">
                       <option value="">請選擇</option>
                     </select>
 
@@ -281,7 +299,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>危害區域：</th>
+                  <th><label for="addHazardItem_targetObject_region">危害區域：</label></th>
                   <td><textarea name="targetObject.region" cols="50" rows="2" id="addHazardItem_targetObject_region"></textarea></td>
                 </tr>
               </table>
@@ -395,8 +413,8 @@
               </script>
 
               <div align="center">
-                <a href="###" class="btn positive" onclick="submit();"> 儲存 </a>
-                <a href="###" class="btn negative" onclick="$('#listHazardItem').submit();">回上頁</a>
+                <a href="###" class="btn positive" onclick="submit();" role="button"> 儲存 </a>
+                <a href="###" class="btn negative" onclick="$('#listHazardItem').submit();" role="button">回上頁</a>
               </div>
             </div>
           </form>
