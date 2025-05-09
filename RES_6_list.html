@@ -86,6 +86,8 @@
     <script src="javascript/jquery.twzipcode.min.js"></script>
   </head>
   <body>
+    <!-- 直接跳主內容區 -->
+    <a class="goCenter" href="#aC" tabindex="1">按Enter到主內容區</a>
     <div class="wrap mp">
       <script language="JavaScript">
         var timeOut = 900; //15分鐘
@@ -125,6 +127,7 @@
       </script>
 
       <header>
+        <a class="accessKey" href="#aU" id="aU" accesskey="U" title="上方功能區塊" tabindex="2">:::</a>
         <h1><a href="/RES/home.action" class="logo1">風險評估及產品危險預防對策系統</a></h1>
 
         <div class="user">
@@ -140,6 +143,7 @@
 
       <main class="clear-fix">
         <div class="Left Menu">
+          <a class="accessKey" href="#aL" id="aL" accesskey="L" title="左方主選單">:::</a>
           <div class="box btn-box">
             <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('home')">風險評估撰寫</a><br />
 
@@ -220,6 +224,14 @@
           </script>
         </div>
         <div class="Right Content">
+          <a class="accessKey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
+          <div aria-label="Breadcrumb" class="breadcrumb">
+            <ul>
+              <li><a href="#">首頁</a></li>
+              <li><a href="#">風險評估撰寫</a></li>
+              <li aria-current="page">步驟六：降低對策</li>
+            </ul>
+          </div>
           <div class="box Table">
             <h2>步驟六：降低對策</h2>
 
@@ -243,7 +255,7 @@
                     <td style="white-space: nowrap">1</td>
                     <td style="white-space: nowrap">1</td>
                     <td>
-                      <a href="###" onclick="editCountermeasureObject('2c991630969e4e7d0196a51df32f0008')"> <img src="images/icon_modify.gif" width="21" height="21" border="0" /></a>
+                      <a href="###" onclick="editCountermeasureObject('2c991630969e4e7d0196a51df32f0008')"> <img src="images/icon_modify.gif" width="21" height="21" border="0" alt="風險降低對策編修" /></a>
                     </td>
                   </tr>
                 </tbody>
@@ -252,7 +264,7 @@
             <br />
 
             <div align="center">
-              <a href="###" class="btn positive" onclick="$('#downloadRiskEvaluationReport').submit();"> 完成風險評估 </a>
+              <a href="###" class="btn positive" onclick="$('#downloadRiskEvaluationReport').submit();" role="button"> 完成風險評估 </a>
             </div>
           </div>
 
