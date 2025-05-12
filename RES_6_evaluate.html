@@ -682,7 +682,11 @@
 
             $('#newRowOption').click(function () {
               var detailTr = $('<tr class="newDescription"/>').html(
-                '<td></td>' + '<td><div align="left">' + '<input type="text" name="descriptionList" size="30" value="" id="descriptionList" placeholder="自填"/> ' + '<a href="javascript:reduce();" class="remove_sub">' + '<img src="images/icon_delete.gif" /></a></div></td>'
+                '<td><label for="descriptionList"></label></td>' +
+                  '<td><div align="left">' +
+                  '<input type="text" name="descriptionList" size="30" value="" id="descriptionList" placeholder="自填"/> ' +
+                  '<a href="javascript:reduce();" class="remove_sub">' +
+                  '<img src="images/icon_delete.gif" alt="刪除" /></a></div></td>'
               );
 
               $('#tableBody').append(detailTr);
