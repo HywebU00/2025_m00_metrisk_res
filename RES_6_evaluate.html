@@ -86,6 +86,8 @@
     <script src="javascript/jquery.twzipcode.min.js"></script>
   </head>
   <body>
+    <!-- 直接跳主內容區 -->
+    <a class="goCenter" href="#aC" tabindex="1">按Enter到主內容區</a>
     <div class="wrap mp">
       <script language="JavaScript">
         var timeOut = 900; //15分鐘
@@ -125,6 +127,7 @@
       </script>
 
       <header>
+        <a class="accessKey" href="#aU" id="aU" accesskey="U" title="上方功能區塊" tabindex="2">:::</a>
         <h1><a href="/RES/home.action" class="logo1">風險評估及產品危險預防對策系統</a></h1>
 
         <div class="user">
@@ -140,6 +143,7 @@
 
       <main class="clear-fix">
         <div class="Left Menu">
+          <a class="accessKey" href="#aL" id="aL" accesskey="L" title="左方主選單">:::</a>
           <div class="box btn-box">
             <a href="###" class="btn negative" style="width: 235px; text-align: left" onclick="navigator('home')">風險評估撰寫</a><br />
 
@@ -220,6 +224,14 @@
           </script>
         </div>
         <div class="Right Content">
+          <a class="accessKey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
+          <div aria-label="Breadcrumb" class="breadcrumb">
+            <ul>
+              <li><a href="#">首頁</a></li>
+              <li><a href="#">風險評估撰寫</a></li>
+              <li aria-current="page">步驟六：降低對策編修</li>
+            </ul>
+          </div>
           <form id="saveCountermeasure" name="saveCountermeasure" action="/RES/front/riskEvaluation/saveCountermeasure.action" method="post">
             <div class="box Table">
               <input type="hidden" name="_csrf" value="e7395af8-f738-4891-8180-5191eb589bf1" />
@@ -233,13 +245,13 @@
               <table>
                 <tbody>
                   <tr>
-                    <th style="white-space: nowrap">危害源：</th>
+                    <th scope="row" style="white-space: nowrap">危害源：</th>
                     <td>
                       <label id="saveCountermeasure_targetObject_hazardItem_sourceObj_type">機械危害</label>
                       \
                       <label id="saveCountermeasure_targetObject_hazardItem_sourceObj_origin">無</label>
                     </td>
-                    <th style="white-space: nowrap">危害狀況：</th>
+                    <th scope="row" style="white-space: nowrap">危害狀況：</th>
                     <td>
                       <label id="saveCountermeasure_targetObject_hazardItem_situationObj_stage">搬運輸送</label>
                       \
@@ -247,17 +259,17 @@
                     </td>
                   </tr>
                   <tr>
-                    <th style="white-space: nowrap">危害事件：</th>
+                    <th scope="row" style="white-space: nowrap">危害事件：</th>
                     <td>
                       <label id="saveCountermeasure_targetObject_hazardItem_eventObj_reason">可動刀片與工件之間</label>
                       \
                       <label id="saveCountermeasure_targetObject_hazardItem_eventObj_result">無</label>
                     </td>
-                    <th style="white-space: nowrap">危害區域：</th>
+                    <th scope="row" style="white-space: nowrap">危害區域：</th>
                     <td><label id="saveCountermeasure_targetObject_hazardItem_region"></label></td>
                   </tr>
                   <tr>
-                    <th style="white-space: nowrap">風險等級：</th>
+                    <th scope="row" style="white-space: nowrap">風險等級：</th>
                     <td colspan="3">
                       <table>
                         <tbody>
@@ -289,201 +301,258 @@
               </table>
 
               <table class="horizontal">
-                <thead>
+                <th scope="row" ead>
                   <tr>
-                    <th>選取</th>
-                    <th><div align="left">風險降低對策</div></th>
+                    <th scope="row">選取</th>
+                    <th scope="row"><div align="left">風險降低對策</div></th>
                   </tr>
-                </thead>
+                </th>
                 <tbody id="tableBody">
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed3101aec00be" />
+                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed3101aec00be" id="checkid1" />
                     </td>
-                    <td><div align="left">本質安全設計</div></td>
+                    <td>
+                      <div align="left"><label for="checkid1">本質安全設計</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed310d488009a" checked="true" />
+                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed310d488009a" checked="true" id="checkid2" />
                     </td>
-                    <td><div align="left">閉合表面之間的間距不超過 6 mm</div></td>
+                    <td>
+                      <div align="left"><label for="checkid2">閉合表面之間的間距不超過 6 mm</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed31129dc009b" />
+                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed31129dc009b" id="checkid3" />
                     </td>
-                    <td><div align="left">50 % 的彈簧總成失效，制動器仍可運作</div></td>
+                    <td>
+                      <div align="left"><label for="checkid3">50 % 的彈簧總成失效，制動器仍可運作</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed311be9a009c" />
+                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed311be9a009c" id="checkid4" />
                     </td>
-                    <td><div align="left">氣、油壓系統設置過濾器和壓力調節器</div></td>
+                    <td>
+                      <div align="left"><label for="checkid4">氣、油壓系統設置過濾器和壓力調節器</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed311fe81009d" />
+                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed311fe81009d" id="checkid5" />
                     </td>
-                    <td><div align="left">管接頭應為凸緣式或焊接式</div></td>
+                    <td>
+                      <div align="left"><label for="checkid5">管接頭應為凸緣式或焊接式</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed317ebb800c1" />
+                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed317ebb800c1" id="checkid6" />
                     </td>
-                    <td><div align="left">離合器和制動器操作閥應設計成使進氣口和排氣口無法同時關閉</div></td>
+                    <td>
+                      <div align="left"><label for="checkid6">離合器和制動器操作閥應設計成使進氣口和排氣口無法同時關閉</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed31833ed009f" />
+                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed31833ed009f" id="checkid7" />
                     </td>
-                    <td><div align="left">離合器和制動器及其控制系統應設計成在氣壓、液壓或電力供應失效時分離離合器並立即施加制動力</div></td>
+                    <td>
+                      <div align="left"><label for="checkid7">離合器和制動器及其控制系統應設計成在氣壓、液壓或電力供應失效時分離離合器並立即施加制動力</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed318840100c2" />
+                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed318840100c2" id="checkid8" />
                     </td>
-                    <td><div align="left">滑塊/撞錘移動寸動步進不得超過 6 mm</div></td>
+                    <td>
+                      <div align="left"><label for="checkid8">滑塊/撞錘移動寸動步進不得超過 6 mm</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed318c7b100c3" />
+                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed318c7b100c3" id="checkid9" />
                     </td>
-                    <td><div align="left">設計/提供固定點允許機台連接地面/地基</div></td>
+                    <td>
+                      <div align="left"><label for="checkid9">設計/提供固定點允許機台連接地面/地基</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed31915d100a0" />
+                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed31915d100a0" id="checkid10" />
                     </td>
-                    <td><div align="left">裝設足夠的護欄和腳趾板</div></td>
+                    <td>
+                      <div align="left"><label for="checkid10">裝設足夠的護欄和腳趾板</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed32242b200c6" />
+                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed32242b200c6" id="checkid11" />
                     </td>
-                    <td><div align="left">安全防護</div></td>
+                    <td>
+                      <div align="left"><label for="checkid11">安全防護</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed32311bb00c7" />
+                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed32311bb00c7" id="checkid12" />
                     </td>
-                    <td><div align="left">護罩</div></td>
+                    <td>
+                      <div align="left"><label for="checkid12">護罩</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed3235ec100c8" />
+                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed3235ec100c8" id="checkid13" />
                     </td>
-                    <td><div align="left">追加對策</div></td>
+                    <td>
+                      <div align="left"><label for="checkid13">追加對策</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed3239fb200a8" />
+                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed3239fb200a8" id="checkid14" />
                     </td>
-                    <td><div align="left">緊急停止裝置</div></td>
+                    <td>
+                      <div align="left"><label for="checkid14">緊急停止裝置</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed323da0c00c9" />
+                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed323da0c00c9" id="checkid15" />
                     </td>
-                    <td><div align="left">模式選擇開關</div></td>
+                    <td>
+                      <div align="left"><label for="checkid15">模式選擇開關</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed324371000a9" />
+                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed324371000a9" id="checkid16" />
                     </td>
-                    <td><div align="left">持壓控制裝置</div></td>
+                    <td>
+                      <div align="left"><label for="checkid16">持壓控制裝置</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed324e3fa00ca" />
+                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed324e3fa00ca" id="checkid17" />
                     </td>
-                    <td><div align="left">雙手控制裝置</div></td>
+                    <td>
+                      <div align="left"><label for="checkid17">雙手控制裝置</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed32537e600aa" />
+                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed32537e600aa" id="checkid18" />
                     </td>
-                    <td><div align="left">寸動</div></td>
+                    <td>
+                      <div align="left"><label for="checkid18">寸動</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed32584fd00cb" />
+                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed32584fd00cb" id="checkid19" />
                     </td>
-                    <td><div align="left">安全運轉速度</div></td>
+                    <td>
+                      <div align="left"><label for="checkid19">安全運轉速度</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed32605d500cc" />
+                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed32605d500cc" id="checkid20" />
                     </td>
-                    <td><div align="left">機械抑制裝置(例：擋塊)</div></td>
+                    <td>
+                      <div align="left"><label for="checkid20">機械抑制裝置(例：擋塊)</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed326478200ab" />
+                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed326478200ab" id="checkid21" />
                     </td>
-                    <td><div align="left">腳踏開關</div></td>
+                    <td>
+                      <div align="left"><label for="checkid21">腳踏開關</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed326ab6c00cd" />
+                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed326ab6c00cd" id="checkid22" />
                     </td>
-                    <td><div align="left">使用資訊</div></td>
+                    <td>
+                      <div align="left"><label for="checkid22">使用資訊</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed327298500ac" />
+                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed327298500ac" id="checkid23" />
                     </td>
-                    <td><div align="left">警告、標示提醒</div></td>
+                    <td>
+                      <div align="left"><label for="checkid23">警告、標示提醒</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed3276b1300ce" />
+                      <input type="checkbox" name="codeList" value="2c9916307e0970a7017ed3276b1300ce" id="checkid24" />
                     </td>
-                    <td><div align="left">操作手冊說明</div></td>
+                    <td>
+                      <div align="left"><label for="checkid24">操作手冊說明</label></div>
+                    </td>
                   </tr>
 
                   <tr>
                     <td>
-                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed3279dbb00ad" />
+                      <input type="checkbox" name="codeList" value="2c9916307e096e64017ed3279dbb00ad" id="checkid25" />
                     </td>
-                    <td><div align="left">個人保護用具</div></td>
+                    <td>
+                      <div align="left"><label for="checkid25">個人保護用具</label></div>
+                    </td>
+                  </tr>
+                  <tr class="newDescription">
+                    <td><label for="descriptionList"></label></td>
+                    <td>
+                      <div align="left">
+                        <input type="text" name="descriptionList" size="30" value="" id="descriptionList" placeholder="自填" /> <a href="javascript:reduce();" class="remove_sub"><img src="images/icon_delete.gif" alt="刪除" /></a>
+                      </div>
+                    </td>
                   </tr>
                 </tbody>
               </table>
               <br />
 
               <div id="btnAddOption">
-                <a href="javascript:void(0)"><img src="images/icon_mywork.gif" id="newRowOption" /></a>
-                自訂對策
+                <a href="javascript:void(0)"><img src="images/icon_mywork.gif" id="newRowOption" alt="新增" />自訂對策</a>
               </div>
               <br />
 
               <table>
                 <tbody>
                   <tr>
-                    <th style="white-space: nowrap">風險降低結果：</th>
+                    <th scope="row" style="white-space: nowrap">風險降低結果：</th>
                     <td colspan="3">
                       <table>
                         <tbody>

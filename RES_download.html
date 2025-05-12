@@ -128,14 +128,14 @@
         <h1><a href="/RES/home.action" class="logo1">風險評估及產品危險預防對策系統</a></h1>
 
         <div class="user">
-          <span id="numberSec" style="color: blue">距離登出還有11:13</span>
+          <span id="numberSec" style="color: blue"></span>
 
           <a href="javascript:void(0);" onclick="doLogout();"> 登出 </a>
         </div>
       </header>
 
       <form id="formLogout" action="/RES/j_spring_security_logout" method="POST">
-        <input type="hidden" name="_csrf" value="33eee47f-2d39-44f5-8695-88ddae944670" />
+        <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
       </form>
 
       <main class="clear-fix">
@@ -160,49 +160,49 @@
 
           <form id="home" name="home" action="/RES/home.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="33eee47f-2d39-44f5-8695-88ddae944670" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
           <form id="editCompany" name="editCompany" action="/RES/front/riskEvaluation/editCompany.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="33eee47f-2d39-44f5-8695-88ddae944670" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
           <form id="editEquipment" name="editEquipment" action="/RES/front/riskEvaluation/editEquipment.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="33eee47f-2d39-44f5-8695-88ddae944670" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
           <form id="editRiskLevelDef" name="editRiskLevelDef" action="/RES/front/riskEvaluation/editRiskLevelDef.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="33eee47f-2d39-44f5-8695-88ddae944670" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
           <form id="listHazardItem" name="listHazardItem" action="/RES/front/riskEvaluation/listHazardItem.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="33eee47f-2d39-44f5-8695-88ddae944670" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
           <form id="listEvaluation" name="listEvaluation" action="/RES/front/riskEvaluation/listEvaluation.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="33eee47f-2d39-44f5-8695-88ddae944670" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
           <form id="listCountermeasure" name="listCountermeasure" action="/RES/front/riskEvaluation/listCountermeasure.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="33eee47f-2d39-44f5-8695-88ddae944670" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
           <form id="downloadRiskEvaluationReport" name="downloadRiskEvaluationReport" action="/RES/front/riskEvaluation/downloadRiskEvaluationReport.action" method="POST">
             <table class="wwFormTable">
-              <input type="hidden" name="_csrf" value="33eee47f-2d39-44f5-8695-88ddae944670" />
+              <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
             </table>
           </form>
 
@@ -232,12 +232,204 @@
           <br />
           <div class="box Table" id="info">
             <table class="horizontal">
-              <thead></thead>
+              <thead>
+                <tr>
+                  <th style="background-color: #ffcaaa"></th>
+
+                  <th style="background-color: #ffcaaa">機械危害</th>
+
+                  <th style="background-color: #ffcaaa">電氣危害</th>
+
+                  <th style="background-color: #ffcaaa">熱危害</th>
+
+                  <th style="background-color: #ffcaaa">噪音危害</th>
+
+                  <th style="background-color: #ffcaaa">振動危害</th>
+
+                  <th style="background-color: #ffcaaa">輻射危害</th>
+
+                  <th style="background-color: #ffcaaa">材料/物質之危害</th>
+
+                  <th style="background-color: #ffcaaa">人因工程危害</th>
+
+                  <th style="background-color: #ffcaaa">與機器使用環境相關危害</th>
+
+                  <th style="background-color: #ffcaaa">多重危害組合</th>
+                </tr>
+
+                <tr>
+                  <th nowrap style="background-color: #ffcaaa">搬運輸送</th>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+                </tr>
+
+                <tr>
+                  <th nowrap style="background-color: #ffcaaa">組裝、安裝、試運轉</th>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff">V</td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff">V</td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+                </tr>
+
+                <tr>
+                  <th nowrap style="background-color: #ffcaaa">設定</th>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+                </tr>
+
+                <tr>
+                  <th nowrap style="background-color: #ffcaaa">操作</th>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+                </tr>
+
+                <tr>
+                  <th nowrap style="background-color: #ffcaaa">清潔、維護</th>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+                </tr>
+
+                <tr>
+                  <th nowrap style="background-color: #ffcaaa">偵錯/故障診斷</th>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff">V</td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+                </tr>
+
+                <tr>
+                  <th nowrap style="background-color: #ffcaaa">拆卸、失能、停用、報廢</th>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+
+                  <td style="text-align: center; background-color: #ffffff"></td>
+                </tr>
+              </thead>
             </table>
           </div>
 
           <form id="exportRiskEvaluationReport" name="exportRiskEvaluationReport" action="/RES/front/riskEvaluation/exportRiskEvaluationReport.action" method="post">
-            <input type="hidden" name="_csrf" value="33eee47f-2d39-44f5-8695-88ddae944670" />
+            <input type="hidden" name="_csrf" value="8d011814-1998-4b40-9e43-5cf404c4a9cc" />
           </form>
 
           <script>
@@ -246,7 +438,7 @@
             }
 
             function openQuestionnaire() {
-              window.open('/onlineQuiz/login?rbId=PR20250506S004');
+              window.open('/onlineQuiz/login?rbId=PR20250506S005');
             }
           </script>
         </div>

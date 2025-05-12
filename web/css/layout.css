@@ -1352,3 +1352,10 @@ a.goCenter:focus-visible {
 .necessary {
   color: #c00;
 }
+#btnAddOption a {
+  text-decoration: none;
+  color: #111;
+}
+#btnAddOption a img {
+  margin-right: 5px;
+}
